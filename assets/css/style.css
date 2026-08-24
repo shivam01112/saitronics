@@ -411,6 +411,16 @@ img{ max-width:100%; display:block; }
 /* ==========================================================================
    WHY SAITRONICS
    ========================================================================== */
+.why-us{ position:relative; overflow:hidden; }
+.why-us-bg{
+  position:absolute; inset:0; z-index:0;
+  background-image:
+    linear-gradient(120deg, rgba(13,33,55,.94) 0%, rgba(13,33,55,.88) 55%, rgba(13,33,55,.94) 100%),
+    url('https://images.unsplash.com/photo-1560264280-88b68371db39?auto=format&fit=crop&w=1920&q=65');
+  background-size:cover; background-position:center;
+}
+.why-us .container{ position:relative; z-index:1; }
+
 .pillar{ display:flex; gap:1.25rem; }
 .pillar-num{
   flex:0 0 auto; width:48px; height:48px; display:flex; align-items:center; justify-content:center;
@@ -461,6 +471,13 @@ img{ max-width:100%; display:block; }
   background-size:36px 36px;
 }
 .final-cta > *{ position:relative; z-index:1; }
+.final-cta > .final-cta-bg{
+  position:absolute; inset:0; z-index:0;
+  background-image:
+    linear-gradient(120deg, rgba(13,33,55,.9) 0%, rgba(20,48,77,.86) 100%),
+    url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1920&q=65');
+  background-size:cover; background-position:center;
+}
 .final-cta h2{ color:#fff; font-size:clamp(1.6rem,3vw,2.3rem); max-width:760px; margin:0 auto 1.6rem; }
 
 /* ==========================================================================
