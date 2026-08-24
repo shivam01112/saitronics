@@ -203,64 +203,6 @@ img{ max-width:100%; display:block; }
   color:rgba(255,255,255,.55); margin-bottom:.9rem;
 }
 
-/* Hero showcase card — real product/installation photography (slides 2 & 3) */
-.hero-showcase{
-  position:relative; z-index:2;
-  background:#fff; padding:.6rem; box-shadow:var(--shadow-lg);
-  max-width:400px; margin-left:auto; margin-right:auto;
-}
-.hero-showcase .hero-showcase-media{ position:relative; overflow:hidden; }
-.hero-showcase img{ width:100%; height:270px; object-fit:cover; display:block; }
-.hero-showcase .hero-showcase-media::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(160deg, rgba(13,33,55,.22) 0%, rgba(13,33,55,0) 45%);
-}
-.hero-showcase-tag{
-  position:absolute; left:1.2rem; bottom:1.2rem;
-  background:var(--navy); color:#fff; font-family:var(--font-heading);
-  font-weight:600; font-size:.8rem; padding:.5rem 1rem;
-  border-left:3px solid var(--gold);
-}
-
-/* ---------- Hero carousel scaffolding ---------- */
-.hero-carousel .carousel-item .row{ min-height:440px; }
-
-.hero-indicators{
-  z-index:4; bottom:5.4rem;
-  justify-content:center; margin:0; padding:0;
-}
-.hero-indicators [data-bs-target]{
-  width:28px; height:3px; border-radius:0; background:rgba(255,255,255,.28);
-  border:none; opacity:1; margin:0 5px; transition:background .2s ease;
-}
-.hero-indicators .active{ background:var(--gold); }
-
-.hero-carousel .carousel-control-prev,
-.hero-carousel .carousel-control-next{
-  width:auto; top:auto; bottom:5rem; opacity:1;
-}
-.hero-carousel .carousel-control-prev{ left:auto; right:64px; }
-.hero-carousel .carousel-control-next{ right:16px; }
-.hero-control-icon{
-  width:38px; height:38px; display:flex; align-items:center; justify-content:center;
-  border:1px solid rgba(255,255,255,.25); color:#fff; background:rgba(255,255,255,.05);
-  transition:background .2s ease, border-color .2s ease;
-}
-.hero-carousel .carousel-control-prev:hover .hero-control-icon,
-.hero-carousel .carousel-control-next:hover .hero-control-icon{
-  background:var(--gold); border-color:var(--gold);
-}
-
-/* Below lg the hero stacks tall (text, then panel/showcase) and its height
-   varies per slide, so a bottom-anchored indicator/control strip drifts into
-   the stacked content instead of sitting below it. Rely on autoplay + native
-   touch swipe on small screens instead. */
-@media (max-width:991.98px){
-  .hero-indicators,
-  .hero-carousel .carousel-control-prev,
-  .hero-carousel .carousel-control-next{ display:none; }
-}
-
 /* ==========================================================================
    TRUST METRICS
    ========================================================================== */
@@ -350,21 +292,8 @@ img{ max-width:100%; display:block; }
 .industry-chip .ind-sub{ font-size:.78rem; color:var(--text-secondary); }
 
 /* ==========================================================================
-   PARTNER / CLIENT LOGO WALLS
+   PARTNER LOGO MARQUEE
    ========================================================================== */
-.logo-wall{
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(120px,1fr));
-  gap:1px; background:var(--border-soft); border:1px solid var(--border-soft);
-}
-.logo-wall .logo-cell{
-  background:#fff; display:flex; align-items:center; justify-content:center;
-  padding:1.3rem .75rem; min-height:78px;
-  font-family:var(--font-heading); font-weight:600; font-size:.92rem;
-  color:#94a3b8; filter:grayscale(1); transition:color .2s ease, filter .2s ease;
-  text-align:center;
-}
-.logo-wall .logo-cell:hover{ color:var(--navy); filter:grayscale(0); }
-
 /* ---------- OEM partner marquee: 3 rows, alternating direction ---------- */
 .logo-marquee{
   border:1px solid var(--border-soft); border-left:none; border-right:none;
@@ -401,12 +330,25 @@ img{ max-width:100%; display:block; }
   .logo-marquee-track{ animation:none; }
 }
 
-.client-sector{ margin-bottom:2.2rem; }
-.client-sector-title{
-  font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--blue); margin-bottom:.85rem;
+/* ==========================================================================
+   CUSTOMER PROOF
+   ========================================================================== */
+.proof-card{
+  background:#fff; border:1px solid var(--border-soft); border-top:3px solid var(--blue);
+  padding:1.75rem; height:100%;
+  transition:transform .2s ease, box-shadow .2s ease;
 }
-.client-sector .logo-wall .logo-cell{ min-height:60px; font-size:.85rem; }
+.proof-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-md); }
+.proof-card-icon{
+  width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  background:var(--bg-light); color:var(--blue); font-size:1.2rem; margin-bottom:1.1rem;
+}
+.proof-card-title{ font-size:1rem; margin-bottom:1.1rem; }
+.proof-chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.proof-chip{
+  display:inline-block; background:var(--bg-light); color:var(--text-body);
+  font-size:.82rem; font-weight:500; padding:.4rem .8rem; border:1px solid var(--border-soft);
+}
 
 /* ==========================================================================
    WHY SAITRONICS
