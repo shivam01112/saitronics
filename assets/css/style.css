@@ -304,11 +304,6 @@ img{ max-width:100%; display:block; }
 }
 .solution-card:hover .sol-media img{ transform:scale(1.06); }
 
-.solution-card .sol-media-icon{
-  display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
-  color:#3f6690; font-size:2.8rem;
-}
 .solution-card .sol-media-cytomec{
   display:flex; align-items:center; justify-content:center;
   background:#fffaf0;
