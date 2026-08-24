@@ -133,17 +133,26 @@ img{ max-width:100%; display:block; }
    ========================================================================== */
 .hero{
   position:relative;
-  background:
-    radial-gradient(ellipse at 15% 20%, rgba(26,86,160,.55) 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 80%, rgba(184,134,11,.18) 0%, transparent 40%),
-    linear-gradient(135deg, #0D2137 0%, #122c48 55%, #0a1a2c 100%);
+  background:var(--navy);
   color:#fff;
   overflow:hidden;
   padding:7.5rem 0 6rem;
 }
+.hero-bg-photo{
+  position:absolute; inset:0; z-index:0;
+  background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=70');
+  background-size:cover; background-position:center;
+}
+.hero-bg-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(26,86,160,.55) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 80%, rgba(184,134,11,.16) 0%, transparent 40%),
+    linear-gradient(135deg, rgba(13,33,55,.94) 0%, rgba(18,44,72,.92) 55%, rgba(10,26,44,.95) 100%);
+}
 .hero::before{
   content:"";
-  position:absolute; inset:0;
+  position:absolute; inset:0; z-index:1;
   background-image:
     linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
@@ -152,7 +161,7 @@ img{ max-width:100%; display:block; }
   pointer-events:none;
 }
 .hero-glow{
-  position:absolute; top:-120px; right:-120px; width:520px; height:520px;
+  position:absolute; top:-120px; right:-120px; width:520px; height:520px; z-index:1;
   background:radial-gradient(circle, rgba(26,86,160,.45) 0%, transparent 70%);
   filter:blur(10px); pointer-events:none;
 }
