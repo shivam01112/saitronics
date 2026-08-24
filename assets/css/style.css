@@ -146,9 +146,8 @@ img{ max-width:100%; display:block; }
 .hero-bg-overlay{
   position:absolute; inset:0; z-index:1;
   background:
-    radial-gradient(ellipse at 15% 20%, rgba(26,86,160,.55) 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 80%, rgba(184,134,11,.16) 0%, transparent 40%),
-    linear-gradient(135deg, rgba(13,33,55,.94) 0%, rgba(18,44,72,.92) 55%, rgba(10,26,44,.95) 100%);
+    radial-gradient(ellipse at 85% 15%, rgba(26,86,160,.35) 0%, transparent 45%),
+    linear-gradient(90deg, rgba(10,22,38,.93) 0%, rgba(13,33,55,.82) 42%, rgba(13,33,55,.6) 75%, rgba(13,33,55,.42) 100%);
 }
 .hero::before{
   content:"";
@@ -176,32 +175,43 @@ img{ max-width:100%; display:block; }
 .hero h1{
   color:#fff; font-size:clamp(2.1rem, 4.2vw, 3.4rem); font-weight:700;
   line-height:1.18; margin-bottom:1.4rem; max-width:780px;
+  text-shadow:0 2px 16px rgba(0,0,0,.35);
 }
 .hero h1 .accent{ color:var(--gold-soft); }
 .hero-sub{
-  color:rgba(255,255,255,.78); font-size:1.15rem; max-width:600px; margin-bottom:2.3rem;
+  color:rgba(255,255,255,.85); font-size:1.15rem; max-width:600px; margin-bottom:2.3rem;
+  text-shadow:0 1px 10px rgba(0,0,0,.3);
 }
 .hero-actions{ display:flex; gap:1rem; flex-wrap:wrap; }
 
-.hero-panel{
+/* Hero visual — real photo showcase with capability tags underneath */
+.hero-visual{
   position:relative; z-index:2;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.14);
-  backdrop-filter:blur(6px);
-  padding:2rem;
+  background:#fff; box-shadow:var(--shadow-lg);
+  max-width:440px; margin-left:auto; margin-right:auto;
 }
-.hero-panel-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-.hero-mini-card{
-  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
-  padding:1.1rem; text-align:center;
+.hero-visual-media{ position:relative; overflow:hidden; border-top:3px solid var(--gold); }
+.hero-visual-media img{ width:100%; height:250px; object-fit:cover; display:block; }
+.hero-visual-media::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(13,33,55,0) 60%, rgba(13,33,55,.55) 100%);
 }
-.hero-mini-card i{ font-size:1.4rem; color:#7fa8d6; margin-bottom:.5rem; }
-.hero-mini-card .num{ font-family:var(--font-heading); font-weight:700; font-size:1.35rem; color:#fff; }
-.hero-mini-card .label{ font-size:.72rem; color:rgba(255,255,255,.65); text-transform:uppercase; letter-spacing:.04em; }
+.hero-visual-footer{ padding:1.35rem 1.35rem 1.5rem; }
 .hero-panel-label{
-  text-transform:uppercase; letter-spacing:.1em; font-size:.78rem; font-weight:600;
-  color:rgba(255,255,255,.55); margin-bottom:.9rem;
+  text-transform:uppercase; letter-spacing:.1em; font-size:.75rem; font-weight:700;
+  color:var(--text-secondary); margin-bottom:1rem;
 }
+.hero-visual-tags{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:1fr 1fr; gap:.6rem;
+}
+.hero-visual-tags li{
+  display:flex; align-items:center; gap:.55rem;
+  font-size:.82rem; font-weight:600; color:var(--navy);
+  background:var(--bg-light); border:1px solid var(--border-soft);
+  padding:.6rem .7rem;
+}
+.hero-visual-tags i{ color:var(--blue); font-size:1.05rem; flex:0 0 auto; }
 
 /* ==========================================================================
    TRUST METRICS
@@ -214,10 +224,13 @@ img{ max-width:100%; display:block; }
   background:#fff; box-shadow:var(--shadow-lg);
   padding:1.9rem 1.5rem; text-align:center; height:100%;
   border-bottom:3px solid var(--gold);
+  transition:transform .2s ease, box-shadow .2s ease;
 }
+.metric-card:hover{ transform:translateY(-4px); box-shadow:0 26px 54px rgba(13,33,55,.18); }
 .metric-card .metric-icon{
-  width:52px; height:52px; margin:0 auto 1rem; display:flex; align-items:center; justify-content:center;
-  background:var(--bg-light); color:var(--blue); font-size:1.4rem;
+  width:56px; height:56px; margin:0 auto 1rem; display:flex; align-items:center; justify-content:center;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%); color:#fff; font-size:1.4rem;
 }
 .metric-card .metric-num{
   font-family:var(--font-heading); font-weight:700; font-size:2.1rem; color:var(--gold); line-height:1;
@@ -238,7 +251,7 @@ img{ max-width:100%; display:block; }
 .solution-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:transparent; }
 
 .solution-card .sol-media{
-  height:150px; overflow:hidden; background:var(--bg-light);
+  height:200px; overflow:hidden; background:var(--bg-light);
 }
 .solution-card .sol-media img{
   width:100%; height:100%; object-fit:cover;
@@ -255,7 +268,7 @@ img{ max-width:100%; display:block; }
 .solution-card .sol-body{ padding:1.6rem 1.5rem 1.75rem; flex:1; display:flex; flex-direction:column; }
 .solution-card .sol-icon{
   width:44px; height:44px; display:flex; align-items:center; justify-content:center;
-  background:var(--navy); color:#7fa8d6; font-size:1.2rem; margin-top:-3.2rem; margin-bottom:1rem;
+  background:var(--navy); color:#ffffff; font-size:1.2rem; margin-top:-3.2rem; margin-bottom:1rem;
   box-shadow:0 4px 10px rgba(13,33,55,.25); position:relative; z-index:1;
 }
 .solution-card h3{ font-size:1.1rem; margin-bottom:.6rem; }
