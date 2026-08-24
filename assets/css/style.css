@@ -365,13 +365,41 @@ img{ max-width:100%; display:block; }
 }
 .logo-wall .logo-cell:hover{ color:var(--navy); filter:grayscale(0); }
 
-/* Real partner logo images */
-.logo-wall-img .logo-cell{ padding:1.1rem 1.25rem; }
-.logo-wall-img .logo-cell img{
+/* ---------- OEM partner marquee: 3 rows, alternating direction ---------- */
+.logo-marquee{
+  border:1px solid var(--border-soft); border-left:none; border-right:none;
+}
+.logo-marquee-row{
+  overflow:hidden; background:#fff;
+  border-top:1px solid var(--border-soft);
+}
+.logo-marquee-row:first-child{ border-top:none; }
+.logo-marquee-track{
+  display:flex; width:max-content;
+  animation:logoMarqueeScroll 34s linear infinite;
+}
+.logo-marquee-row--reverse .logo-marquee-track{
+  animation-direction:reverse;
+}
+.logo-marquee-row:hover .logo-marquee-track{ animation-play-state:paused; }
+.logo-marquee-item{
+  flex:0 0 auto; width:160px; height:88px;
+  display:flex; align-items:center; justify-content:center;
+  padding:1rem 1.5rem; border-right:1px solid var(--border-soft);
+}
+.logo-marquee-item img{
   max-width:100%; max-height:36px; width:auto; height:auto; object-fit:contain;
   filter:grayscale(1) opacity(.7); transition:filter .25s ease;
 }
-.logo-wall-img .logo-cell:hover img{ filter:grayscale(0) opacity(1); }
+.logo-marquee-item:hover img{ filter:grayscale(0) opacity(1); }
+
+@keyframes logoMarqueeScroll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .logo-marquee-track{ animation:none; }
+}
 
 .client-sector{ margin-bottom:2.2rem; }
 .client-sector-title{
