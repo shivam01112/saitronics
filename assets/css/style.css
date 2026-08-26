@@ -1196,12 +1196,17 @@ gap: 12px;
 }
 
 .section#clients .section-head {
-  max-width: 720px;
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
   margin-bottom: 2.2rem;
+  text-align: center;
 }
 
 .section#clients .section-title {
-  max-width: 760px;
+  max-width: 820px;
+  margin-right: auto;
+  margin-left: auto;
   color: #09234e;
   font-size: clamp(2.15rem, 3.8vw, 3.35rem);
   font-weight: 700;
@@ -1212,7 +1217,13 @@ gap: 12px;
 
 .section#clients .section-sub {
   max-width: 620px;
+  margin-right: auto;
+  margin-left: auto;
   color: #60718c;
+}
+
+.section#clients .section-head .eyebrow {
+  justify-content: center;
 }
 
 .section#clients .row.g-4 {
