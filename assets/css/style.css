@@ -1443,6 +1443,11 @@ gap: 12px;
   background: #6042bd;
 }
 
+.pillar:focus-within {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 4px;
+}
+
 @media (max-width: 575px) {
   .why-us {
     padding-bottom: 5rem;
