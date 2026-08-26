@@ -10,8 +10,8 @@
   --navy-soft: #14304d;
   --blue: #1A56A0;
   --blue-soft: #2c6bbf;
-  --gold: #B8860B;
-  --gold-soft: #D4A017;
+  --gold:#eeb019;
+  --gold-soft:#eec14c;
   --bg-light: #F5F7FA;
   --white: #FFFFFF;
   --text-body: #1E293B;
@@ -1468,7 +1468,7 @@ gap: 12px;
 }
 
 .why-us-head .section-title {
-  max-width: 540px;
+  max-width: 577px;
   color: #09234e;
   font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 700;
