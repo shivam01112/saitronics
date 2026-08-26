@@ -1466,6 +1466,16 @@ gap: 12px;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .pillar {
+    transition: none;
+  }
+
+  .pillar:hover {
+    transform: none;
+  }
+}
+
 /* ==========================================================================
    CYTOMEC SPOTLIGHT
    ========================================================================== */
