@@ -1371,6 +1371,21 @@ gap: 12px;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .proof-card,
+  .proof-card::after,
+  .proof-card-icon,
+  .proof-chip {
+    transition: none;
+  }
+
+  .proof-card:hover,
+  .proof-card:hover::after,
+  .proof-card:hover .proof-card-icon {
+    transform: none;
+  }
+}
+
 /* ==========================================================================
    WHY SAITRONICS
    ========================================================================== */
