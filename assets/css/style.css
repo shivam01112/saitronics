@@ -1361,6 +1361,11 @@ gap: 12px;
 .section#clients .row.g-4 > :nth-child(4) .proof-chip { background: #fff1e8; }
 .section#clients .row.g-4 > :nth-child(5) .proof-chip { background: #eaf9f9; }
 
+.section#clients .proof-card-title,
+.section#clients .proof-chip {
+  letter-spacing: 0;
+}
+
 @media (max-width: 575px) {
   .section#clients .section-title {
     font-size: 2rem;
