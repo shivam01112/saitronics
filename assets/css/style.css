@@ -618,9 +618,83 @@ img {
   transition: transform .6s ease;
 }
 
+.hero-panel-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent, rgba(2, 10, 24, .82) 90%);
+  pointer-events: none;
+}
+
+.hero-panel-badge {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: .9rem 1.1rem;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-left: 3px solid var(--gold);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hero-panel-badge-icon {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.hero-panel-badge-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.hero-panel-badge-text strong {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: .95rem;
+}
+
+.hero-panel-badge-text span {
+  color: rgba(255, 255, 255, .68);
+  font-size: .76rem;
+}
+
 @media (max-width: 991.98px) {
   .hero-panel img {
     height: 340px;
+  }
+
+  .hero-panel-badge {
+    padding: .7rem .9rem;
+    gap: .65rem;
+  }
+
+  .hero-panel-badge-icon {
+    width: 32px;
+    height: 32px;
+    font-size: .85rem;
+  }
+
+  .hero-panel-badge-text strong {
+    font-size: .85rem;
+  }
+
+  .hero-panel-badge-text span {
+    font-size: .72rem;
   }
 }
 
