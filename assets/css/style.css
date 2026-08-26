@@ -261,14 +261,64 @@ img {
    HEADER
    ========================================================================== */
 .topbar {
-  background: var(--navy);
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  position: relative;
+  background: linear-gradient(90deg, #01123a 0%, var(--navy) 50%, #01123a 100%);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 23, .5), transparent);
+}
+
+.topbar-tagline {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  color: rgba(255, 255, 255, .58);
+}
+
+.topbar-tagline i {
+  color: var(--gold-soft);
+  font-size: .82rem;
+}
+
+.topbar-contacts {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, .18);
 }
 
 .topbar-link {
-  color: rgba(255, 255, 255, .75);
+  position: relative;
+  color: rgba(255, 255, 255, .78);
   font-size: .82rem;
   font-weight: 500;
+  padding-bottom: 2px;
+}
+
+.topbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold-soft);
+  transition: right .25s ease;
 }
 
 .topbar-link i {
@@ -278,6 +328,10 @@ img {
 
 .topbar-link:hover {
   color: #fff;
+}
+
+.topbar-link:hover::after {
+  right: 0;
 }
 
 .main-navbar {
@@ -1381,10 +1435,11 @@ gap: 12px;
   background: #fff;
   padding: .4rem .6rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  border-radius: 6px;
 }
 
 .footer-logo-chip img {
-  height: 26px;
+  height: 170px;
   width: auto;
   object-fit: contain;
 }
