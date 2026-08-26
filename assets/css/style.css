@@ -1273,6 +1273,11 @@ gap: 12px;
   transform: translate(1px, -1px);
 }
 
+.proof-card:focus-within {
+  outline: 2px solid #195abb;
+  outline-offset: 3px;
+}
+
 .proof-card-icon {
   position: relative;
   z-index: 1;
