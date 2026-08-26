@@ -428,25 +428,24 @@ img {
   background: var(--navy);
   color: #fff;
   overflow: hidden;
-  padding: 6.5rem 0 4.5rem;
+  padding: 7rem 0 5.5rem;
 }
 
 .hero-bg-photo {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=70');
+  background-image: url('../img/hero-bg.png');
   background-size: cover;
-  background-position: center;
+ background-position: center right;
 }
 
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(ellipse at 78% 8%, rgba(26, 86, 160, .3) 0%, transparent 45%),
-    linear-gradient(100deg, rgba(2, 10, 24, .97) 0%, rgba(2, 18, 40, .93) 45%, rgba(2, 18, 40, .82) 75%, rgba(2, 18, 40, .72) 100%);
+  /* background:
+   radial-gradient(ellipse at 78% 8%, rgba(26, 86, 160, .3) 0%, transparent 45%), linear-gradient(100deg, rgb(2 10 24 / 18%) 0%, rgb(2 18 40 / 26%) 45%, rgb(2 18 40 / 0%) 75%, rgb(2 18 40 / 0%) 100%); */
 }
 
 .hero-orb {
@@ -716,7 +715,7 @@ img {
 .metrics-band {
   position: relative;
   z-index: 3;
-  margin-top: -64px;
+  margin-top: -20px;
 }
 
 .metrics-bar {
@@ -1013,7 +1012,7 @@ gap: 12px;
 
 .industry-card .ind-name {
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.28;
   margin-bottom: 0;
@@ -1060,8 +1059,8 @@ gap: 12px;
 
 .industry-card:hover .industry-card-overlay,
 .industry-card:focus-within .industry-card-overlay {
-  background:
-    linear-gradient(180deg, rgba(2, 10, 24, .1) 0%, rgba(2, 10, 24, .1) 48%, rgba(2, 10, 24, .56) 100%);
+  /* background:
+    linear-gradient(180deg, rgba(2, 10, 24, .1) 0%, rgba(2, 10, 24, .1) 48%, rgba(2, 10, 24, .56) 100%); */
 }
 
 .industry-card:hover .ind-sub,
@@ -1404,6 +1403,9 @@ gap: 12px;
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, .14);
   padding: 2rem;
+  display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cytomec-card::before {
@@ -1423,12 +1425,12 @@ gap: 12px;
   justify-content: center;
   background: #fff;
   padding: .6rem 1.1rem;
-  margin-bottom: 1.75rem;
+  /* margin-bottom: 1.75rem; */
 }
 
 .cytomec-mark img {
-  height: 48px;
-  width: auto;
+  height: 100%;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -1527,7 +1529,7 @@ gap: 12px;
    ========================================================================== */
 .site-footer {
   position: relative;
-  background: linear-gradient(175deg, #041c3f 0%, var(--navy) 55%, #051633 100%);
+  background: #101b40;
   color: rgba(255, 255, 255, .75);
   overflow: hidden;
 }
