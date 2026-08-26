@@ -1174,8 +1174,8 @@ gap: 12px;
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 92% 12%, rgba(39, 91, 190, .08), transparent 23%),
-    linear-gradient(135deg, #fff 0%, #f8faff 58%, #eef3fc 100%);
+    radial-gradient(circle at 88% 8%, rgba(40, 96, 201, .1), transparent 24%),
+    linear-gradient(135deg, #ffffff 0%, #f8faff 48%, #eef4fd 100%);
 }
 
 .section#clients::after {
@@ -1201,11 +1201,13 @@ gap: 12px;
 }
 
 .section#clients .section-title {
-  max-width: 700px;
+  max-width: 760px;
   color: #09234e;
-  font-size: clamp(2rem, 3.4vw, 3rem);
+  font-size: clamp(2.15rem, 3.8vw, 3.35rem);
   font-weight: 700;
-  line-height: 1.18;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.1rem;
 }
 
 .section#clients .section-sub {
@@ -1221,7 +1223,7 @@ gap: 12px;
   background: #fff;
   border: 1px solid #d9e2f2;
   border-radius: 8px;
-  padding: 1.15rem 1rem 1.05rem;
+  padding: 25px 20px;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -1323,6 +1325,11 @@ gap: 12px;
   height: 2px;
   margin-top: .55rem;
   background: #195abb;
+  transition: width .3s ease;
+}
+
+.proof-card:hover .proof-card-title::after {
+  width: 52px;
 }
 
 .section#clients .row.g-4 > :nth-child(2) .proof-card-title::after { background: #27a64c; }
@@ -1388,6 +1395,10 @@ gap: 12px;
   .proof-card:hover::after,
   .proof-card:hover .proof-card-icon {
     transform: none;
+  }
+
+  .proof-card:hover .proof-card-title::after {
+    width: 21px;
   }
 }
 
