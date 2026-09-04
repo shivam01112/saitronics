@@ -262,7 +262,7 @@ img {
    ========================================================================== */
 .topbar {
   position: relative;
-  background: linear-gradient(90deg, #01123a 0%, var(--navy) 50%, #01123a 100%);
+  background:#011b78;
 }
 
 .topbar::after {
@@ -284,7 +284,7 @@ img {
   font-size: .78rem;
   font-weight: 500;
   letter-spacing: .01em;
-  color: rgba(255, 255, 255, .58);
+  color: rgba(255, 255, 255, 0.992);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -312,7 +312,7 @@ img {
 
 .topbar-link {
   position: relative;
-  color: rgba(255, 255, 255, .78);
+  color: rgba(255, 255, 255, 0.993);
   font-size: .82rem;
   font-weight: 500;
   padding-bottom: 2px;
@@ -330,7 +330,7 @@ img {
 }
 
 .topbar-link i {
-  color: #7fa8d6;
+  color: var(--gold-soft);
   margin-right: .35rem;
 }
 
@@ -1574,7 +1574,7 @@ gap: 12px;
 
 .pillar h4 {
   color: #09234e;
-  font-size: 1.08rem;
+  font-size: 1.04rem;
   font-weight: 700;
   line-height: 1.38;
   margin-bottom: .7rem;
