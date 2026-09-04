@@ -428,7 +428,7 @@ img {
   background: var(--navy);
   color: #fff;
   overflow: hidden;
-  padding: 7rem 0 5.5rem;
+  padding: 6.7rem 0 6.5rem;
 }
 
 .hero-bg-photo {
@@ -715,7 +715,7 @@ img {
 .metrics-band {
   position: relative;
   z-index: 3;
-  margin-top: -20px;
+  margin-top: -40px;
 }
 
 .metrics-bar {
@@ -819,7 +819,7 @@ gap: 12px;
 }
 
 .solution-card .sol-media {
-  height: 200px;
+  height: 260px;
   overflow: hidden;
   background: var(--bg-light);
   position: relative;
@@ -839,9 +839,9 @@ gap: 12px;
   transition: transform .5s ease;
 }
 
-.solution-card:hover .sol-media img {
+/* .solution-card:hover .sol-media img {
   transform: scale(1.08);
-}
+} */
 
 .solution-card .sol-media-cytomec {
   display: flex;
@@ -951,7 +951,7 @@ gap: 12px;
   position: relative;
   display: flex;
   align-items: flex-start;
-  height: 320px;
+  height: 390px;
   overflow: hidden;
   color: #fff;
   border: 1px solid rgba(2, 10, 24, .1);
@@ -1021,9 +1021,9 @@ gap: 12px;
 }
 
 .industry-card .ind-sub {
-  font-size: .9rem;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, .84);
+     font-size: 1.6rem;
+    line-height: 1.55;
+    color: rgb(255 255 255);
   margin: 0;
   max-width: 30ch;
   max-height: 0;
@@ -1034,12 +1034,12 @@ gap: 12px;
 }
 
 .industry-card .ind-link {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  color: var(--gold-soft);
-  font-weight: 700;
-  font-size: .85rem;
+display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--gold-soft);
+    font-weight: 700;
+    font-size: 20px;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity .3s ease .05s, transform .3s ease .05s;
