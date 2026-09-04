@@ -182,7 +182,7 @@ img {
 }
 
 .bg-navy {
-  background: var(--navy);
+  background: linear-gradient(160deg, #0c1c3f 0%, #050b1c 100%);
   color: #fff;
 }
 
@@ -1438,7 +1438,7 @@ gap: 12px;
     position: absolute;
     inset: 41% 0 0;
     z-index: 0;
-    background-color: #011c77;
+    background-color: #050b1c;
     background-image: radial-gradient(rgb(255 255 255 / 35%) 1px, transparent 1.5px);
     background-size: 20px 20px;
     clip-path: ellipse(115% 76% at 50% 100%);
