@@ -164,14 +164,33 @@
       showLeader(prev);
     }
 
-    if (prevBtn) prevBtn.addEventListener("click", prevLeader);
-    if (nextBtn) nextBtn.addEventListener("click", nextLeader);
+    var autoplayDelay = 3000;
+    var autoplayTimer = null;
+
+    function startAutoplay() {
+      stopAutoplay();
+      autoplayTimer = setInterval(nextLeader, autoplayDelay);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+    }
+
+    function restartAutoplay() {
+      startAutoplay();
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { prevLeader(); restartAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { nextLeader(); restartAutoplay(); });
 
     avatarBtns.forEach(function (btn, index) {
       btn.addEventListener("click", function () {
         showLeader(index);
+        restartAutoplay();
       });
     });
+
+    startAutoplay();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
