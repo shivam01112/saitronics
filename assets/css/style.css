@@ -43,7 +43,7 @@ body {
   background: var(--white);
   font-size: 16px;
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1,
@@ -272,6 +272,15 @@ img {
 /* ==========================================================================
    HEADER
    ========================================================================== */
+/* #header-placeholder and .site-header only exist to hold the injected
+   markup — without display:contents they'd shrink-wrap the topbar+nav and
+   give position:sticky no room to work, since a sticky element can only
+   stay stuck for as long as its own containing block still has height left. */
+#header-placeholder,
+.site-header {
+  display: contents;
+}
+
 .topbar {
   position: relative;
   background:#011b78;
