@@ -1134,6 +1134,9 @@ display: inline-flex;
 
 .logo-marquee-row--reverse .logo-marquee-track {
   animation-direction: reverse;
+  /* row has more logos than the top row, so its track is wider —
+     a longer duration keeps the px/sec scroll speed matching the top row */
+  animation-duration: 56.7s;
 }
 
 .logo-marquee-row:hover .logo-marquee-track {
