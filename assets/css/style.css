@@ -168,6 +168,18 @@ img {
   color: var(--white);
 }
 
+.btn-outline-navy {
+  border: 1px solid rgba(2, 29, 120, .3);
+  color: var(--navy);
+  background: transparent;
+}
+
+.btn-outline-navy:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
 /* Section rhythm */
 .section {
   padding: 5.5rem 0;
