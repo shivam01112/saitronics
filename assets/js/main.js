@@ -127,6 +127,53 @@
     counters.forEach(function (el) { observer.observe(el); });
   }
 
+  function initLeadershipSlider() {
+    var currentIndex = 0;
+    var leaderCards = document.querySelectorAll(".leader-card");
+    var leaderAvatars = document.querySelectorAll(".leader-avatar");
+    var avatarBtns = document.querySelectorAll(".leader-avatar-btn");
+    var prevBtn = document.querySelector(".leader-prev");
+    var nextBtn = document.querySelector(".leader-next");
+
+    if (!leaderCards.length) return;
+
+    function showLeader(index) {
+      leaderCards.forEach(function (card) {
+        card.classList.remove("active");
+      });
+      leaderAvatars.forEach(function (avatar) {
+        avatar.classList.remove("active");
+      });
+      avatarBtns.forEach(function (btn) {
+        btn.classList.remove("active");
+      });
+
+      leaderCards[index].classList.add("active");
+      leaderAvatars[index].classList.add("active");
+      avatarBtns[index].classList.add("active");
+      currentIndex = index;
+    }
+
+    function nextLeader() {
+      var next = (currentIndex + 1) % leaderCards.length;
+      showLeader(next);
+    }
+
+    function prevLeader() {
+      var prev = (currentIndex - 1 + leaderCards.length) % leaderCards.length;
+      showLeader(prev);
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", prevLeader);
+    if (nextBtn) nextBtn.addEventListener("click", nextLeader);
+
+    avatarBtns.forEach(function (btn, index) {
+      btn.addEventListener("click", function () {
+        showLeader(index);
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     Promise.all([
       include("#header-placeholder", "header.html"),
@@ -139,6 +186,7 @@
       initCollapseOnLinkClick();
       initReveal();
       initCounters();
+      initLeadershipSlider();
     });
   });
 })();
