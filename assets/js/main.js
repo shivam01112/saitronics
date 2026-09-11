@@ -38,11 +38,49 @@
   function initNavbarScroll() {
     var nav = document.querySelector(".main-navbar");
     if (!nav) return;
-    var onScroll = function () {
-      nav.classList.toggle("scrolled", window.scrollY > 24);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+
+    var lastY = window.scrollY;
+    var ticking = false;
+    var hideThreshold = 140;
+    var deadZone = 6;
+
+    function isMenuOpen() {
+      var collapse = nav.querySelector(".navbar-collapse");
+      return !!(collapse && collapse.classList.contains("show"));
+    }
+
+    function update() {
+      var y = window.scrollY;
+      var delta = y - lastY;
+
+      nav.classList.toggle("scrolled", y > 24);
+
+      if (isMenuOpen()) {
+        nav.classList.remove("nav-hidden");
+      } else if (Math.abs(delta) > deadZone) {
+        if (delta > 0 && y > hideThreshold) {
+          nav.classList.add("nav-hidden");
+        } else if (delta < 0) {
+          nav.classList.remove("nav-hidden");
+        }
+        lastY = y;
+      }
+
+      if (y <= hideThreshold) {
+        nav.classList.remove("nav-hidden");
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    update();
   }
 
   function initBackToTop() {
