@@ -214,11 +214,11 @@ img {
   align-items: center;
   gap: .5rem;
   font-family: var(--font-heading);
-  font-size: .75rem;
+  font-size: .95rem;
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--gold-soft) !important;
   margin-bottom: .9rem;
 }
 
@@ -226,7 +226,7 @@ img {
   content: "";
   width: 24px;
   height: 2px;
-  background: var(--blue);
+  background: var(--gold-soft) !important;
   display: inline-block;
 }
 
@@ -902,7 +902,7 @@ gap: 12px;
 .solution-card .sol-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: inherit;
   transition: transform .5s ease;
 }
 
@@ -1528,7 +1528,7 @@ display: inline-flex;
 }
 
 .why-us-head .eyebrow {
-  color: var(--blue);
+  color:var(--gold-soft) !important;
   justify-content: flex-start;
 }
 
@@ -2343,7 +2343,7 @@ display: inline-flex;
 .hero-service .hero-line {
   font-size: 1.3rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, .95);
+  color: var(--gold-soft) !important;
   margin-bottom: 1rem;
   letter-spacing: 0.5px;
 }
@@ -3011,11 +3011,7 @@ display: inline-flex;
 .hero-service.has-photo .hero-service-overlay {
   width: 100%;
   z-index: 1;
-  background: linear-gradient(100deg,
-    rgba(2, 10, 24, .82) 0%,
-    rgba(2, 10, 24, .62) 45%,
-    rgba(2, 10, 24, .3) 75%,
-    rgba(2, 10, 24, .12) 100%);
+  background:linear-gradient(100deg, rgb(2 10 24 / 21%) 0%, rgb(2 10 24 / 0%) 45%, rgb(2 10 24 / 0%) 75%, rgb(2 10 24 / 0%) 100%);
 }
 
 .hero-service .container {
