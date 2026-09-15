@@ -510,8 +510,7 @@ img {
   position: absolute;
   inset: 0;
   z-index: 0;
-  /* background:
-   radial-gradient(ellipse at 78% 8%, rgba(26, 86, 160, .3) 0%, transparent 45%), linear-gradient(100deg, rgb(2 10 24 / 18%) 0%, rgb(2 18 40 / 26%) 45%, rgb(2 18 40 / 0%) 75%, rgb(2 18 40 / 0%) 100%); */
+      background: linear-gradient(100deg, rgb(2 10 24 / 96%) 0%, rgba(2, 18, 40, 0.30) 35%, rgba(2, 18, 40, 0.12) 60%, rgba(2, 18, 40, 0) 100%);
 }
 
 .hero-orb {
@@ -2308,6 +2307,40 @@ display: inline-flex;
   font-weight: 500;
 }
 
+/* Photo variant — used on case study detail pages */
+.breadcrumb-bar.has-photo {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.breadcrumb-bar.has-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(4, 14, 34, .88) 0%, rgba(4, 14, 34, .55) 100%);
+}
+
+.breadcrumb-bar.has-photo .container {
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumb-bar.has-photo .breadcrumb-item,
+.breadcrumb-bar.has-photo .breadcrumb-item a {
+  color: rgba(255, 255, 255, .85);
+}
+
+.breadcrumb-bar.has-photo .breadcrumb-item a:hover {
+  color: var(--gold);
+}
+
+.breadcrumb-bar.has-photo .breadcrumb-item.active {
+  color: #fff;
+}
+
 /* ==========================================================================
    SERVICE PAGE SPECIFIC STYLES
    ========================================================================== */
@@ -3173,8 +3206,9 @@ display: inline-flex;
   background: var(--white);
   border: 1px solid var(--border-soft);
   border-top: 3px solid transparent;
-  padding: 1.9rem 1.7rem 1.6rem;
+  padding: 0 0 1.6rem;
   position: relative;
+  overflow: hidden;
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
 
@@ -3184,14 +3218,42 @@ display: inline-flex;
   border-top-color: var(--gold);
 }
 
+.case-card-media {
+  height: 28
+  0px;
+  overflow: hidden;
+  background: var(--bg-light);
+  position: relative;
+}
+
+.case-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.case-card:hover .case-card-media img {
+  transform: scale(1.06);
+}
+
+.case-card-body {
+  padding: 1.6rem 1.7rem 0;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .case-card-num {
   position: absolute;
-  top: 1.2rem;
+  top: -2.6rem;
   right: 1.4rem;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: .85rem;
-  color: var(--border-soft);
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
 }
 
 .case-card-icon {
@@ -3203,7 +3265,18 @@ display: inline-flex;
   background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
   color: #fff;
   font-size: 1.3rem;
+  margin-top: -3.4rem;
   margin-bottom: 1.1rem;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 16px rgba(13, 33, 55, .3);
+  position: relative;
+  z-index: 1;
+  transition: background .3s ease, transform .3s ease;
+}
+
+.case-card:hover .case-card-icon {
+  background: linear-gradient(135deg, var(--gold-soft) 0%, var(--gold) 100%);
+  transform: scale(1.08);
 }
 
 .case-card-tag {
@@ -3520,6 +3593,18 @@ display: inline-flex;
   line-height: 1.8;
   color: var(--text-body);
   margin-bottom: 1.1rem;
+}
+
+.case-detail-image {
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1.6rem 0 2rem;
+}
+
+.case-detail-image img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ---------- Sidebar: sticky wrapper holds both cards together ---------- */
