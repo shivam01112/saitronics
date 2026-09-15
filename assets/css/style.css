@@ -510,7 +510,7 @@ img {
   position: absolute;
   inset: 0;
   z-index: 0;
-      background: linear-gradient(100deg, rgb(2 10 24 / 96%) 0%, rgba(2, 18, 40, 0.30) 35%, rgba(2, 18, 40, 0.12) 60%, rgba(2, 18, 40, 0) 100%);
+      background:linear-gradient(100deg, rgb(2 10 24 / 96%) 0%, rgb(2 18 40 / 20%) 35%, rgb(2 18 40 / 0%) 60%, rgb(2 18 40 / 0%) 100%);
 }
 
 .hero-orb {
