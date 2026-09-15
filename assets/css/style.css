@@ -885,7 +885,7 @@ gap: 12px;
 }
 
 .solution-card .sol-media {
-  height: 260px;
+  height: 224px;
   overflow: hidden;
   background: var(--bg-light);
   position: relative;
