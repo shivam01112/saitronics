@@ -228,6 +228,12 @@
       });
     });
 
+    var hoverPauseEl = document.querySelector(".featured-leader-wrapper");
+    if (hoverPauseEl) {
+      hoverPauseEl.addEventListener("mouseenter", stopAutoplay);
+      hoverPauseEl.addEventListener("mouseleave", startAutoplay);
+    }
+
     startAutoplay();
   }
 
