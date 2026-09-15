@@ -2307,40 +2307,6 @@ display: inline-flex;
   font-weight: 500;
 }
 
-/* Photo variant — used on case study detail pages */
-.breadcrumb-bar.has-photo {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  border-bottom: none;
-  overflow: hidden;
-}
-
-.breadcrumb-bar.has-photo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(4, 14, 34, .88) 0%, rgba(4, 14, 34, .55) 100%);
-}
-
-.breadcrumb-bar.has-photo .container {
-  position: relative;
-  z-index: 1;
-}
-
-.breadcrumb-bar.has-photo .breadcrumb-item,
-.breadcrumb-bar.has-photo .breadcrumb-item a {
-  color: rgba(255, 255, 255, .85);
-}
-
-.breadcrumb-bar.has-photo .breadcrumb-item a:hover {
-  color: var(--gold);
-}
-
-.breadcrumb-bar.has-photo .breadcrumb-item.active {
-  color: #fff;
-}
-
 /* ==========================================================================
    SERVICE PAGE SPECIFIC STYLES
    ========================================================================== */
