@@ -219,13 +219,16 @@
     var autoplayDelay = 3000;
     var autoplayTimer = null;
 
+    function stopAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+
+    var hoverPauseEl = document.querySelector(".featured-leader-wrapper");
+
     function startAutoplay() {
       stopAutoplay();
       autoplayTimer = setInterval(nextLeader, autoplayDelay);
-    }
-
-    function stopAutoplay() {
-      if (autoplayTimer) clearInterval(autoplayTimer);
     }
 
     function restartAutoplay() {
@@ -242,7 +245,6 @@
       });
     });
 
-    var hoverPauseEl = document.querySelector(".featured-leader-wrapper");
     if (hoverPauseEl) {
       hoverPauseEl.addEventListener("mouseenter", stopAutoplay);
       hoverPauseEl.addEventListener("mouseleave", startAutoplay);
