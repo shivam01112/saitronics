@@ -225,8 +225,12 @@
     }
 
     var hoverPauseEl = document.querySelector(".featured-leader-wrapper");
+    var leadershipSection = document.querySelector(".leadership-section");
+    var sectionInView = false;
+    var hasEnteredSection = false;
 
     function startAutoplay() {
+      if (!sectionInView) return;
       stopAutoplay();
       autoplayTimer = setInterval(nextLeader, autoplayDelay);
     }
@@ -250,7 +254,7 @@
       hoverPauseEl.addEventListener("mouseleave", startAutoplay);
     }
 
-    startAutoplay();
+    showLeader(0);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
