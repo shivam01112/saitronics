@@ -255,6 +255,27 @@
     }
 
     showLeader(0);
+
+    if (leadershipSection) {
+      var leadershipObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            sectionInView = entry.isIntersecting;
+            if (sectionInView) {
+              if (!hasEnteredSection) {
+                hasEnteredSection = true;
+                showLeader(0);
+              }
+              startAutoplay();
+            } else {
+              stopAutoplay();
+            }
+          });
+        },
+        { threshold: 0.28, rootMargin: "0px 0px -8% 0px" }
+      );
+      leadershipObserver.observe(leadershipSection);
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
