@@ -35,6 +35,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -1327,35 +1328,10 @@ display: inline-flex;
   pointer-events: none;
 }
 
-.proof-card::after {
-  content: "\F138";
-  font-family: bootstrap-icons;
-  position: absolute;
-  top: 1.15rem;
-  right: 1rem;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #bdcbe2;
-  border-radius: 50%;
-  color: #173a78;
-  font-size: .85rem;
-  transition: color .25s ease, background .25s ease, border-color .25s ease, transform .25s ease;
-}
-
 .proof-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 15px 30px rgba(20, 58, 120, .11);
   border-color: #9eb9e4;
-}
-
-.proof-card:hover::after {
-  color: #fff;
-  background: #1758b7;
-  border-color: #1758b7;
-  transform: translate(1px, -1px);
 }
 
 .proof-card:focus-within {
@@ -4015,6 +3991,13 @@ textarea.form-control {
   .main-navbar .navbar-collapse {
     max-height: calc(100vh - 67px);
     overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 1.25rem;
+  }
+
+  .main-navbar .navbar-nav > li.nav-item.ms-lg-3 {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
   }
 
   .solutions-mega-menu {
