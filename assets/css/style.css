@@ -2706,7 +2706,7 @@ display: inline-flex;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.88);
   margin: 0;
-      text-align: justify;
+      text-align: left;
 }
 
 .featured-leader-image {

@@ -219,20 +219,13 @@
     var autoplayDelay = 3000;
     var autoplayTimer = null;
 
-    function stopAutoplay() {
-      if (autoplayTimer) clearInterval(autoplayTimer);
-      autoplayTimer = null;
-    }
-
-    var hoverPauseEl = document.querySelector(".featured-leader-wrapper");
-    var leadershipSection = document.querySelector(".leadership-section");
-    var sectionInView = false;
-    var hasEnteredSection = false;
-
     function startAutoplay() {
-      if (!sectionInView) return;
       stopAutoplay();
       autoplayTimer = setInterval(nextLeader, autoplayDelay);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
     }
 
     function restartAutoplay() {
@@ -249,33 +242,13 @@
       });
     });
 
+    var hoverPauseEl = document.querySelector(".featured-leader-wrapper");
     if (hoverPauseEl) {
       hoverPauseEl.addEventListener("mouseenter", stopAutoplay);
       hoverPauseEl.addEventListener("mouseleave", startAutoplay);
     }
 
-    showLeader(0);
-
-    if (leadershipSection) {
-      var leadershipObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            sectionInView = entry.isIntersecting;
-            if (sectionInView) {
-              if (!hasEnteredSection) {
-                hasEnteredSection = true;
-                showLeader(0);
-              }
-              startAutoplay();
-            } else {
-              stopAutoplay();
-            }
-          });
-        },
-        { threshold: 0.28, rootMargin: "0px 0px -8% 0px" }
-      );
-      leadershipObserver.observe(leadershipSection);
-    }
+    startAutoplay();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
