@@ -54,7 +54,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  color: var(--navy);
+  color:#000;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
@@ -4135,10 +4135,10 @@ textarea.form-control {
    SOLUTIONS (home) - horizontal cards: text left, image right; no hover effects
    ========================================================================== */
 #solutions .sol-head { display: block; margin-bottom: 2.75rem; }
-#solutions .sol-head > div { flex: none; width: 100%; max-width: 760px; margin: 0 auto; text-align: center; }
+#solutions .sol-head > div { flex: none; width: 100%;  margin: 0 auto; text-align: center; }
 #solutions .sol-head .eyebrow { justify-content: center; }
 #solutions .sol-head .section-sub { margin: 0 auto; max-width: 640px; font-size: 1rem; }
-#solutions .sol-grid { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; counter-reset: sol; }
+#solutions .sol-grid { --bs-gutter-x: .7rem; --bs-gutter-y: 1.5rem; counter-reset: sol; }
 #solutions .solution-card {
   counter-increment: sol;
   position: relative;
@@ -4164,6 +4164,7 @@ textarea.form-control {
   padding: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 #solutions .solution-card .sol-media {
   order: 2;
@@ -4237,20 +4238,21 @@ textarea.form-control {
   color: var(--text-secondary);
   margin: 0;
 }
-/* whole card is the link; visible "Learn more" text is hidden */
+/* "Learn more" link pinned to the bottom of the text column */
+#solutions .solution-card .sol-body { justify-content: flex-start; }
+#solutions .solution-card p { flex: 1 0 auto; margin-bottom: 1rem; }
 #solutions .solution-card .sol-link {
-  position: static;
-  font-size: 0;
+  margin-top: auto;
   padding: 0;
   border: 0;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--navy);
+  transition: none;
 }
-#solutions .solution-card .sol-link i { display: none; }
-#solutions .solution-card .sol-link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-}
+#solutions .solution-card .sol-link i { display: inline-block; transition: none; }
+#solutions .solution-card:hover .sol-link,
+#solutions .solution-card:hover .sol-link i { color: var(--navy); transform: none; }
 @media (max-width: 575px) {
   #solutions .solution-card { min-height: 260px; padding: 1.25rem 1rem 1rem 1.25rem; }
   #solutions .solution-card .sol-media { flex-basis: 40%; width: 40%; }
