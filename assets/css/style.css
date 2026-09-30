@@ -4239,10 +4239,11 @@ textarea.form-control {
   margin: 0;
 }
 /* "Learn more" link pinned to the bottom of the text column */
-#solutions .solution-card .sol-body { justify-content: flex-start; }
-#solutions .solution-card p { flex: 1 0 auto; margin-bottom: 1rem; }
+#solutions .solution-card .sol-body { justify-content: center; }
+#solutions .solution-card p { flex: none; margin-bottom: 1rem; }
 #solutions .solution-card .sol-link {
-  margin-top: auto;
+  margin-top: 0;
+  align-self: flex-start;
   padding: 0;
   border: 0;
   font-size: .88rem;
