@@ -879,7 +879,7 @@ gap: 12px;
 }
 
 .solution-card:hover {
-  transform: translateY(-8px);
+  /* transform: translateY(-8px); */
   box-shadow: var(--shadow-lg);
   border-color: var(--border-soft);
   border-top-color: var(--gold);
@@ -4150,13 +4150,13 @@ textarea.form-control {
   padding: 1.25rem 1rem 1.25rem 1.25rem;
   background: #fff;
   border: 1px solid var(--border-soft);
-  border-bottom: 3px solid var(--gold);
+  /* border-bottom: 3px solid var(--gold); */
   border-radius: 10px;
   box-shadow: none;
   transition: none;
   overflow: hidden;
 }
-#solutions .solution-card:hover { transform: none; box-shadow: none; border-color: var(--border-soft); border-bottom-color: var(--gold); }
+/* #solutions .solution-card:hover { transform: none; box-shadow: none; border-color: var(--border-soft); border-bottom-color: var(--gold); } */
 #solutions .solution-card .sol-body {
   order: 1;
   flex: 1 1 0;
@@ -4255,3 +4255,7 @@ textarea.form-control {
   #solutions .solution-card { min-height: 260px; padding: 1.25rem 1rem 1rem 1.25rem; }
   #solutions .solution-card .sol-media { flex-basis: 40%; width: 40%; }
 }
+
+/* solutions: no counter or icon on cards */
+#solutions .solution-card .sol-body::before,
+#solutions .solution-card .sol-icon { display: none; }
