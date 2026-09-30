@@ -21,28 +21,29 @@
 <!-- Site styles -->
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
-.cx-banner{background:linear-gradient(135deg,#021d78 0%,#14304d 100%);color:#fff;padding:56px 0 96px;text-align:center}
+.cx-banner{background:linear-gradient(135deg,#021d78 0%,#14304d 100%);color:#fff;padding:56px 0 64px;text-align:center}
 .cx-eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(238,176,25,.5);padding:5px 12px;margin-bottom:16px}
 .cx-banner h1{font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin:0 0 12px;color:#fff}
 .cx-banner h1 span{color:var(--gold)}
 .cx-banner p{max-width:620px;margin:0 auto;color:rgba(255,255,255,.8);font-size:1rem}
-.cx-section{background:var(--bg-light);padding:0 0 64px}
-.cx-card{margin-top:-56px;background:#fff;box-shadow:var(--shadow-lg);border-radius:6px;overflow:hidden;max-width:1040px;margin-left:auto;margin-right:auto}
-.cx-form-side{padding:32px 36px}
-.cx-form-side h2,.cx-info-side h3{font-family:var(--font-heading);font-size:1.4rem;font-weight:600;margin:0 0 4px}
+.cx-section{background:var(--bg-light);padding:56px 0 72px}
+.cx-card{max-width:1080px;margin:0 auto}
+.cx-card>.row{--bs-gutter-x:28px;--bs-gutter-y:28px}
+.cx-form-side{background:#fff;border:1px solid var(--border-soft);border-radius:10px;box-shadow:var(--shadow-md);padding:40px 40px 36px;height:100%}
+.cx-form-side h2,.cx-info-side h3{font-family:var(--font-heading);font-size:1.5rem;font-weight:600;margin:0 0 6px}
 .cx-form-side h2{color:var(--navy)}
-.cx-lead{color:var(--text-secondary);font-size:.9rem;margin:0 0 20px}
-.cx-form label{display:block;font-size:.8rem;font-weight:600;color:var(--text-body);margin-bottom:5px}
+.cx-lead{color:var(--text-secondary);font-size:.92rem;margin:0 0 28px}
+.cx-form label{display:block;font-size:.8rem;font-weight:600;color:var(--text-body);margin-bottom:7px}
 .cx-form label span{color:#d93025}
-.cx-form input,.cx-form select,.cx-form textarea{width:100%;padding:9px 12px;font-size:.9rem;font-family:var(--font-body);border:1px solid var(--border-soft);border-radius:4px;background:#f9fafc;color:var(--text-body);transition:border-color .2s,box-shadow .2s,background .2s}
+.cx-form input,.cx-form select,.cx-form textarea{width:100%;padding:11px 14px;font-size:.92rem;font-family:var(--font-body);border:1px solid var(--border-soft);border-radius:4px;background:var(--bg-light);color:var(--text-body);transition:border-color .2s,box-shadow .2s,background .2s}
 .cx-form input:focus,.cx-form select:focus,.cx-form textarea:focus{outline:0;background:#fff;border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,160,.12)}
 .cx-form textarea{resize:vertical;min-height:84px}
-.cx-submit{width:100%;padding:11px;font-weight:600;margin-top:4px}
-.cx-info-side{height:100%;background:linear-gradient(160deg,#021d78,#14304d);color:#fff;padding:32px}
+.cx-submit{width:100%;padding:13px;font-weight:600;margin-top:8px}
+.cx-info-side{height:100%;background:linear-gradient(160deg,#021d78,#14304d);color:#fff;padding:40px 36px;border-radius:10px;box-shadow:var(--shadow-md)}
 .cx-info-side h3{color:#fff}
 .cx-info-side .cx-lead{color:rgba(255,255,255,.7)}
-.cx-list{list-style:none;padding:0;margin:0 0 24px}
-.cx-list li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.cx-list{list-style:none;padding:0;margin:0 0 28px}
+.cx-list li{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
 .cx-list li:last-child{border-bottom:0}
 .cx-ico{flex:0 0 40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(238,176,25,.15);color:var(--gold);border-radius:50%;font-size:1rem}
 .cx-list small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.55);margin-bottom:2px}
@@ -50,7 +51,7 @@
 .cx-list a:hover{color:var(--gold)}
 .cx-note{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.08);padding:12px 14px;border-radius:4px;font-size:.85rem;color:rgba(255,255,255,.85)}
 .cx-note i{color:var(--gold);margin-top:2px}
-@media(max-width:575px){.cx-form-side,.cx-info-side{padding:24px 20px}.cx-banner{padding:40px 0 80px}}
+@media(max-width:575px){.cx-form-side,.cx-info-side{padding:28px 20px}.cx-banner{padding:40px 0 48px}.cx-section{padding:36px 0 48px}}
 </style>
 </head>
 <body>
