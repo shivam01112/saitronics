@@ -20,6 +20,38 @@
 
 <!-- Site styles -->
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+.cx-banner{background:linear-gradient(135deg,#021d78 0%,#14304d 100%);color:#fff;padding:56px 0 96px;text-align:center}
+.cx-eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(238,176,25,.5);padding:5px 12px;margin-bottom:16px}
+.cx-banner h1{font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin:0 0 12px;color:#fff}
+.cx-banner h1 span{color:var(--gold)}
+.cx-banner p{max-width:620px;margin:0 auto;color:rgba(255,255,255,.8);font-size:1rem}
+.cx-section{background:var(--bg-light);padding:0 0 64px}
+.cx-card{margin-top:-56px;background:#fff;box-shadow:var(--shadow-lg);border-radius:6px;overflow:hidden;max-width:1040px;margin-left:auto;margin-right:auto}
+.cx-form-side{padding:32px 36px}
+.cx-form-side h2,.cx-info-side h3{font-family:var(--font-heading);font-size:1.4rem;font-weight:600;margin:0 0 4px}
+.cx-form-side h2{color:var(--navy)}
+.cx-lead{color:var(--text-secondary);font-size:.9rem;margin:0 0 20px}
+.cx-form label{display:block;font-size:.8rem;font-weight:600;color:var(--text-body);margin-bottom:5px}
+.cx-form label span{color:#d93025}
+.cx-form input,.cx-form select,.cx-form textarea{width:100%;padding:9px 12px;font-size:.9rem;font-family:var(--font-body);border:1px solid var(--border-soft);border-radius:4px;background:#f9fafc;color:var(--text-body);transition:border-color .2s,box-shadow .2s,background .2s}
+.cx-form input:focus,.cx-form select:focus,.cx-form textarea:focus{outline:0;background:#fff;border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,160,.12)}
+.cx-form textarea{resize:vertical;min-height:84px}
+.cx-submit{width:100%;padding:11px;font-weight:600;margin-top:4px}
+.cx-info-side{height:100%;background:linear-gradient(160deg,#021d78,#14304d);color:#fff;padding:32px}
+.cx-info-side h3{color:#fff}
+.cx-info-side .cx-lead{color:rgba(255,255,255,.7)}
+.cx-list{list-style:none;padding:0;margin:0 0 24px}
+.cx-list li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.cx-list li:last-child{border-bottom:0}
+.cx-ico{flex:0 0 40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(238,176,25,.15);color:var(--gold);border-radius:50%;font-size:1rem}
+.cx-list small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.55);margin-bottom:2px}
+.cx-list p,.cx-list a{margin:0;color:#fff;font-size:.95rem;line-height:1.5;text-decoration:none;word-break:break-word}
+.cx-list a:hover{color:var(--gold)}
+.cx-note{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.08);padding:12px 14px;border-radius:4px;font-size:.85rem;color:rgba(255,255,255,.85)}
+.cx-note i{color:var(--gold);margin-top:2px}
+@media(max-width:575px){.cx-form-side,.cx-info-side{padding:24px 20px}.cx-banner{padding:40px 0 80px}}
+</style>
 </head>
 <body>
 
@@ -28,147 +60,112 @@
 
 <main>
 
-  <!-- ============================== CONTACT HERO ============================== -->
-  <section class="hero">
-    <div class="hero-bg-photo"></div>
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-
+  <!-- ============================== CONTACT BANNER ============================== -->
+  <section class="cx-banner">
     <div class="container">
-      <div class="row align-items-center gy-5">
-        <div class="col-12 col-lg-7">
-          <div class="hero-content">
-            <span class="hero-badge"><i class="bi bi-chat-left-dots-fill"></i> Let's Connect</span>
-            <h1>Get in touch with <span class="accent">Saitronics</span></h1>
-            <p class="hero-sub">
-              Whether you're planning a technology refresh, setting up a new office, or exploring managed services, our team is ready to help. Reach out and let's discuss what's right for your organization.
-            </p>
-          </div>
-        </div>
-      </div>
+      <span class="cx-eyebrow"><i class="bi bi-chat-left-dots-fill"></i> Let's Connect</span>
+      <h1>Get in touch with <span>Saitronics</span></h1>
+      <p>Planning a technology refresh, a new office or managed services? Tell us what you need and our team will get back to you.</p>
     </div>
   </section>
 
   <!-- ============================== CONTACT SECTION ============================== -->
-  <section class="section">
+  <section class="cx-section">
     <div class="container">
-      <div class="row g-5">
-        <!-- Contact Form -->
-        <div class="col-12 col-lg-8" data-aos="fade-up">
-          <div class="contact-form-wrapper">
-            <h2 class="section-title mb-4">Send Us a Message</h2>
-            <form id="contactForm" class="contact-form">
-              <div class="row g-4">
-                <div class="col-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="fullName" class="form-label">Full Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="fullName" name="fullName" required>
+      <div class="cx-card" data-aos="fade-up">
+        <div class="row g-0">
+
+          <!-- Form -->
+          <div class="col-12 col-lg-7">
+            <div class="cx-form-side">
+              <h2>Send us a message</h2>
+              <p class="cx-lead">Fill in the form and we'll respond within 24 business hours.</p>
+              <form id="contactForm" class="cx-form">
+                <div class="row g-3">
+                  <div class="col-12 col-sm-6">
+                    <label for="fullName">Full Name <span>*</span></label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Your name" required>
                   </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                  <div class="col-12 col-sm-6">
+                    <label for="email">Email <span>*</span></label>
+                    <input type="email" id="email" name="email" placeholder="you@company.com" required>
                   </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="phone">
+                  <div class="col-12 col-sm-6">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
                   </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="company" class="form-label">Company Name</label>
-                    <input type="text" class="form-control" id="company" name="company">
+                  <div class="col-12 col-sm-6">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company" placeholder="Company name">
                   </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group">
-                    <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="subject" name="subject" required>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group">
-                    <label for="service" class="form-label">Service Interested In</label>
-                    <select class="form-control" id="service" name="service">
+                  <div class="col-12">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service">
                       <option value="">Select a service</option>
                       <option value="enterprise-computing">Enterprise Computing</option>
                       <option value="enterprise-mobility">Enterprise Mobility</option>
-                      <option value="av-collaboration">AV & Collaboration</option>
+                      <option value="av-collaboration">AV &amp; Collaboration</option>
                       <option value="managed-print">Managed Print Services</option>
-                      <option value="it-accessories">IT Accessories & Connectivity</option>
-                      <option value="cytomec">Cytomec</option>
-                      <option value="corporate-gifting">Corporate Gifting & Onboarding</option>
+                      <option value="it-accessories">IT Accessories &amp; Connectivity</option>
+                      <!-- <option value="cytomec">Cytomec</option> -->
+                      <option value="corporate-gifting">Corporate Gifting &amp; Onboarding</option>
                       <option value="corporate-bags">Customised Corporate Bags</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-group">
-                    <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
-                    <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
+                  <div class="col-12">
+                    <label for="subject">Subject <span>*</span></label>
+                    <input type="text" id="subject" name="subject" placeholder="How can we help?" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="message">Message <span>*</span></label>
+                    <textarea id="message" name="message" rows="3" placeholder="Tell us a little about your requirement" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-gold cx-submit">Send Message <i class="bi bi-arrow-right ms-2"></i></button>
                   </div>
                 </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-gold btn-lg w-100">Send Message <i class="bi bi-arrow-right ms-2"></i></button>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <!-- Contact Info -->
-        <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="60">
-          <div class="contact-info-wrapper">
-            <h3 class="mb-4">Get in Touch</h3>
+          <!-- Details -->
+          <div class="col-12 col-lg-5">
+            <div class="cx-info-side">
+              <h3>Contact details</h3>
+              <p class="cx-lead">Reach us directly — we're happy to help.</p>
 
-            <!-- Office Locations -->
-            <div class="contact-block mb-5">
-              <h4 class="contact-block-title mb-3"><i class="bi bi-geo-alt-fill"></i> Our Offices</h4>
-              <div class="office-list">
-                <div class="office-item mb-4">
-                  <p class="fw-semibold mb-1">Headquarters</p>
-                  <p class="text-muted small">
-                    Saitronics Systems Pvt Ltd<br>
-                    New Delhi, India
-                  </p>
-                </div>
-                <div class="office-item">
-                  <p class="fw-semibold mb-1">Pan-India Presence</p>
-                  <p class="text-muted small">
-                    We serve clients across India with local support teams in major cities.
-                  </p>
-                </div>
-              </div>
-            </div>
+              <ul class="cx-list">
+                <li>
+                  <span class="cx-ico"><i class="bi bi-geo-alt-fill"></i></span>
+                  <div>
+                    <small>Address</small>
+                    <p>Pocket B, 17 A, Siddhartha Extension,<br>New Delhi – 110014</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="cx-ico"><i class="bi bi-envelope-fill"></i></span>
+                  <div>
+                    <small>Email</small>
+                    <a href="mailto:info@saitronics-it.com">info@saitronics-it.com</a>
+                  </div>
+                </li>
+                <li>
+                  <span class="cx-ico"><i class="bi bi-telephone-fill"></i></span>
+                  <div>
+                    <small>Phone</small>
+                    <a href="tel:+911135971051">011-35971051</a>
+                  </div>
+                </li>
+              </ul>
 
-            <!-- Contact Methods -->
-            <div class="contact-block mb-5">
-              <h4 class="contact-block-title mb-3"><i class="bi bi-telephone-fill"></i> Contact Methods</h4>
-              <div class="contact-methods">
-                <div class="contact-method mb-3">
-                  <p class="text-muted small mb-1">Email</p>
-                  <a href="mailto:sales@saitronics.com" class="contact-link">sales@saitronics.com</a>
-                </div>
-                <div class="contact-method">
-                  <p class="text-muted small mb-1">Phone</p>
-                  <a href="tel:+91-11-XXXX-XXXX" class="contact-link">+91-11-XXXX-XXXX</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Response Time -->
-            <div class="contact-block">
-              <div class="alert alert-info" role="alert">
-                <i class="bi bi-info-circle me-2"></i>
-                <strong>Response Time:</strong> We typically respond within 24 business hours.
+              <div class="cx-note">
+                <i class="bi bi-clock-history"></i>
+                <span>Pan-India delivery &amp; support. We typically respond within 24 business hours.</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
