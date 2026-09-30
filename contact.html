@@ -27,11 +27,9 @@
 .cx-banner h1 span{color:var(--gold)}
 .cx-banner p{max-width:620px;margin:0 auto;color:rgba(255,255,255,.8);font-size:1rem}
 .cx-section{background:var(--bg-light);padding:56px 0 72px}
-.cx-card{max-width:1080px;margin:0 auto}
-.cx-card>.row{--bs-gutter-x:28px;--bs-gutter-y:28px}
-.cx-form-side{background:#fff;border:1px solid var(--border-soft);border-radius:10px;box-shadow:var(--shadow-md);padding:40px 40px 36px;height:100%}
-.cx-form-side h2,.cx-info-side h3{font-family:var(--font-heading);font-size:1.5rem;font-weight:600;margin:0 0 6px}
-.cx-form-side h2{color:var(--navy)}
+.cx-card{max-width:1080px;margin:0 auto;background:#fff;border:1px solid var(--border-soft);border-radius:10px;box-shadow:var(--shadow-md);overflow:hidden}
+.cx-form-side{padding:40px;height:100%}
+.cx-form-side h2,.cx-info-side h3{font-family:var(--font-heading);font-size:1.5rem;font-weight:600;margin:0 0 6px;color:var(--navy)}
 .cx-lead{color:var(--text-secondary);font-size:.92rem;margin:0 0 28px}
 .cx-form label{display:block;font-size:.8rem;font-weight:600;color:var(--text-body);margin-bottom:7px}
 .cx-form label span{color:#d93025}
@@ -39,18 +37,18 @@
 .cx-form input:focus,.cx-form select:focus,.cx-form textarea:focus{outline:0;background:#fff;border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,160,.12)}
 .cx-form textarea{resize:vertical;min-height:84px}
 .cx-submit{width:100%;padding:13px;font-weight:600;margin-top:8px}
-.cx-info-side{height:100%;background:linear-gradient(160deg,#021d78,#14304d);color:#fff;padding:40px 36px;border-radius:10px;box-shadow:var(--shadow-md)}
-.cx-info-side h3{color:#fff}
-.cx-info-side .cx-lead{color:rgba(255,255,255,.7)}
+.cx-info-side{height:100%;background:var(--bg-light);border-left:1px solid var(--border-soft);padding:40px 36px}
 .cx-list{list-style:none;padding:0;margin:0 0 28px}
-.cx-list li{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.cx-list li{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border-soft)}
+.cx-list li:first-child{padding-top:0}
 .cx-list li:last-child{border-bottom:0}
-.cx-ico{flex:0 0 40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(238,176,25,.15);color:var(--gold);border-radius:50%;font-size:1rem}
-.cx-list small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.55);margin-bottom:2px}
-.cx-list p,.cx-list a{margin:0;color:#fff;font-size:.95rem;line-height:1.5;text-decoration:none;word-break:break-word}
-.cx-list a:hover{color:var(--gold)}
-.cx-note{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.08);padding:12px 14px;border-radius:4px;font-size:.85rem;color:rgba(255,255,255,.85)}
+.cx-ico{flex:0 0 42px;height:42px;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--gold);border-radius:50%;font-size:1rem}
+.cx-list small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);margin-bottom:2px}
+.cx-list p,.cx-list a{margin:0;color:var(--text-body);font-size:.95rem;font-weight:500;line-height:1.5;text-decoration:none;word-break:break-word}
+.cx-list a:hover{color:var(--blue)}
+.cx-note{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--border-soft);border-left:3px solid var(--gold);padding:12px 14px;border-radius:4px;font-size:.85rem;color:var(--text-secondary)}
 .cx-note i{color:var(--gold);margin-top:2px}
+@media(max-width:991px){.cx-info-side{border-left:0;border-top:1px solid var(--border-soft)}}
 @media(max-width:575px){.cx-form-side,.cx-info-side{padding:28px 20px}.cx-banner{padding:40px 0 48px}.cx-section{padding:36px 0 48px}}
 </style>
 </head>
