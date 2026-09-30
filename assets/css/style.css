@@ -4130,3 +4130,50 @@ textarea.form-control {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ==========================================================================
+   SOLUTIONS (home) - minimal, flat cards; no hover effects
+   ========================================================================== */
+#solutions .solution-card {
+  background: transparent;
+  border: 0;
+  border-top: 0;
+  box-shadow: none;
+  transition: none;
+  overflow: visible;
+}
+#solutions .solution-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+#solutions .solution-card .sol-media {
+  height: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+#solutions .solution-card .sol-media::after { display: none; }
+#solutions .solution-card .sol-media img {
+  object-fit: cover;
+  transition: none;
+}
+#solutions .solution-card .sol-icon { display: none; }
+#solutions .solution-card .sol-body { padding: 1.1rem 0 0; }
+#solutions .solution-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: .45rem;
+}
+#solutions .solution-card p {
+  font-size: .88rem;
+  line-height: 1.6;
+  margin-bottom: .9rem;
+}
+#solutions .solution-card .sol-link {
+  border-top: 0;
+  padding-top: 0;
+  transition: none;
+}
+#solutions .solution-card:hover .sol-link { color: var(--blue); }
+#solutions .solution-card .sol-link i,
+#solutions .solution-card:hover .sol-link i { transition: none; transform: none; }
