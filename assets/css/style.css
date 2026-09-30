@@ -4143,10 +4143,11 @@ textarea.form-control {
   counter-increment: sol;
   position: relative;
   display: flex;
+  flex-direction: row;
   align-items: stretch;
-  gap: 1rem;
-  min-height: 300px;
-  padding: 1.5rem 1.25rem 1.25rem 1.5rem;
+  gap: .9rem;
+  min-height: 280px;
+  padding: 1.25rem 1rem 1.25rem 1.25rem;
   background: #fff;
   border: 1px solid var(--border-soft);
   border-bottom: 3px solid var(--gold);
@@ -4167,8 +4168,8 @@ textarea.form-control {
 #solutions .solution-card .sol-media {
   order: 2;
   position: relative;
-  flex: 0 0 38%;
-  width: 38%;
+  flex: 0 0 34%;
+  width: 34%;
   height: auto;
   align-self: stretch;
   border-radius: 64px 10px 10px 10px;
