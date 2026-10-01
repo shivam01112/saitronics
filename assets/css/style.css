@@ -4326,47 +4326,87 @@ textarea.form-control {
 #solutions .sol-grid > :nth-child(4) .solution-card:hover .sol-link,
 #solutions .sol-grid > :nth-child(6) .solution-card:hover .sol-link { color: #fff; }
 
-/* solutions: no counter or icon on cards */
-#solutions .solution-card .sol-body::before,
-#solutions .solution-card .sol-icon { display: none; }
+/* desktop: text column and image column never overlap */
+@media (min-width: 992px) {
+  #solutions .solution-card .sol-body {
+    flex: 0 0 auto;
+    width: 66%;
+    margin: 0;
+    padding: 2rem 1.25rem 2rem 2rem;
+  }
+  #solutions .solution-card .sol-media { left: 50%; }
+  #solutions .solution-card .sol-media::after {
+    background: linear-gradient(90deg, var(--card-bg) 0%, transparent 32%);
+  }
+  #solutions .sol-grid > :nth-child(1) .sol-body { width: 52%; padding-left: 2.5rem; }
+  #solutions .sol-grid > :nth-child(1) .sol-media { left: 44%; }
+  #solutions .sol-grid > :nth-child(3) .sol-body,
+  #solutions .sol-grid > :nth-child(4) .sol-body,
+  #solutions .sol-grid > :nth-child(5) .sol-body { width: 66%; padding: 1.75rem .75rem 1.75rem 1.75rem; }
+  #solutions .sol-grid > :nth-child(3) .sol-media,
+  #solutions .sol-grid > :nth-child(4) .sol-media,
+  #solutions .sol-grid > :nth-child(5) .sol-media { left: 56%; }
+  #solutions .sol-grid > :nth-child(3) .solution-card h3,
+  #solutions .sol-grid > :nth-child(4) .solution-card h3,
+  #solutions .sol-grid > :nth-child(5) .solution-card h3 { font-size: 1.08rem; }
+  #solutions .sol-grid > :nth-child(6) .sol-body,
+  #solutions .sol-grid > :nth-child(7) .sol-body { width: 53%; padding-left: 2.5rem; }
+  #solutions .sol-grid > :nth-child(6) .sol-media,
+  #solutions .sol-grid > :nth-child(7) .sol-media { left: 40%; }
+}
+
+/* tablet: two columns, image on top of text */
+@media (max-width: 991px) {
+  #solutions .sol-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #solutions .sol-grid > :nth-child(n) { grid-column: span 1; }
+  #solutions .sol-grid > :nth-child(1),
+  #solutions .sol-grid > :nth-child(7) { grid-column: span 2; }
+  #solutions .sol-grid > :nth-child(n) .solution-card {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+  #solutions .sol-grid > :nth-child(n) .sol-media {
+    position: relative;
+    left: auto;
+    order: -1;
+    height: 200px;
+  }
+  #solutions .sol-grid > :nth-child(n) .sol-media::after {
+    background: linear-gradient(0deg, var(--card-bg) 0%, rgba(0, 0, 0, 0) 45%);
+  }
+  #solutions .sol-grid > :nth-child(n) .sol-body {
+    width: 100%;
+    padding: 1.5rem 1.5rem 1.75rem;
+  }
+  #solutions .sol-grid > :nth-child(1) .solution-card h3 { font-size: 1.4rem; }
+}
+/* mobile: single column */
+@media (max-width: 575px) {
+  #solutions .sol-grid { grid-template-columns: 1fr; gap: 1rem; }
+  #solutions .sol-grid > :nth-child(n) { grid-column: span 1; }
+}
 
 /* ==========================================================================
-   WHY SAITRONICS - premium dark video background, compact glass cards
+   WHY SAITRONICS - clean white, centered icon columns
    ========================================================================== */
 .why-us {
-  padding: 5rem 0 5.5rem;
-  background: #050b1c;
+  padding: 2rem 0 2rem;
+  background: #fff;
 }
 .why-us::after { display: none; }
-.why-us .why-us-bg {
-  background: #050b1c;
-  clip-path: none;
-  overflow: hidden;
-}
-.why-us .why-us-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: .75;
-}
-.why-us .why-us-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(5, 11, 28, .78) 0%, rgba(5, 11, 28, .55) 50%, rgba(5, 11, 28, .85) 100%);
-}
 .why-us .why-us-head {
-  max-width: 680px;
-  margin: 0 auto 3rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
   text-align: center;
 }
 .why-us .why-us-head .eyebrow { justify-content: center; }
 .why-us .why-us-head .section-title {
   max-width: none;
-  color: #fff;
-  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  color: #0a1330;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -.01em;
 }
 .why-us .why-us-head .section-sub {
   max-width: 560px;
