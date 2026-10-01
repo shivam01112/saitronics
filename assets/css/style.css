@@ -4595,8 +4595,244 @@ textarea.form-control {
   .hero-video-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 575px) {
-  .why-us { padding: 3.5rem 0; }
+  .hero-video { padding: 5rem 0 6rem; min-height: 0; }
+  .hero-video p { font-size: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .why-us .why-us-video { display: none; }
+  .hero-video-bg { display: none; }
+}
+
+/* ==========================================================================
+   CAREERS - apply modal
+   ========================================================================== */
+.apply-modal .modal-content {
+  border: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(3, 8, 24, .45);
+}
+.apply-modal .modal-header {
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  background: linear-gradient(135deg, #0a1f6b 0%, #0c1c3f 100%);
+  border: 0;
+  border-bottom: 3px solid var(--gold);
+}
+.apply-modal .apply-eyebrow {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.apply-modal .modal-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.apply-modal .apply-role {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-width: 0;
+  margin: 0 auto 0 0;
+  padding: .25rem .8rem;
+  font-size: .85rem;
+  color: rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 999px;
+}
+.apply-modal .apply-role i { color: var(--gold); }
+.apply-modal .btn-close {
+  margin: 0;
+  filter: invert(1) grayscale(1) brightness(2);
+  opacity: .8;
+}
+.apply-modal .btn-close:hover { opacity: 1; }
+.apply-modal .modal-body { padding: 1.75rem 2rem 2rem; }
+
+.apply-label {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: .85rem;
+  font-weight: 600;
+  color: #0a1330;
+}
+.apply-label span { color: #d33; }
+.apply-modal .form-control,
+.apply-modal .form-select {
+  min-height: 46px;
+  padding: .6rem .9rem;
+  font-size: .95rem;
+  color: #0a1330;
+  background-color: #f7f9fc;
+  border: 1px solid #d6dce8;
+  border-radius: 8px;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.apply-modal textarea.form-control { min-height: 96px; resize: vertical; }
+.apply-modal .form-control:focus,
+.apply-modal .form-select:focus {
+  background-color: #fff;
+  border-color: #0a1f6b;
+  box-shadow: 0 0 0 .2rem rgba(10, 31, 107, .12);
+}
+.apply-modal .form-control::placeholder { color: #98a2b6; }
+
+.apply-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.apply-file {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  margin: 0;
+  cursor: pointer;
+  background: #f7f9fc;
+  border: 1.5px dashed #b9c3d8;
+  border-radius: 10px;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.apply-file:hover { border-color: #0a1f6b; background: #fff; }
+.apply-file > i { font-size: 1.9rem; line-height: 1; color: #0a1f6b; }
+.apply-file-text { display: flex; flex-direction: column; min-width: 0; }
+.apply-file-text strong {
+  font-size: .95rem;
+  font-weight: 600;
+  color: #0a1330;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.apply-file-text small { font-size: .8rem; color: #6b768c; }
+.apply-file.has-file { border-style: solid; border-color: #1f9d55; background: #f0faf4; }
+.apply-file.has-file > i { color: #1f9d55; }
+.apply-file.is-invalid { border-color: #dc3545; background: #fff6f6; }
+.apply-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.apply-file-error { margin-top: .4rem; font-size: .85rem; color: #dc3545; }
+.apply-file-error:empty { display: none; }
+
+.apply-consent { display: flex; align-items: flex-start; gap: .65rem; padding-left: 0; }
+.apply-consent .form-check-input { flex: 0 0 auto; float: none; margin: .2rem 0 0; }
+.apply-consent .form-check-label { font-size: .88rem; color: #55617a; }
+.apply-consent .invalid-feedback { flex-basis: 100%; }
+
+.apply-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e6eaf2;
+}
+.apply-actions .btn-gold {
+  padding: .8rem 2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  /* box-shadow: 0 8px 20px rgba(238, 176, 25, .35); */
+}
+.apply-cancel {
+  padding: .5rem 0;
+  font-size: .95rem;
+  font-weight: 600;
+  color: #55617a;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+.apply-cancel:hover { color: #0a1f6b; border-bottom-color: #0a1f6b; }
+.apply-error { margin: .9rem 0 0; font-size: .9rem; color: #dc3545; }
+.apply-error:empty { display: none; }
+
+.apply-success { padding: 2rem 1rem; text-align: center; }
+.apply-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 1.25rem;
+  font-size: 2.2rem;
+  color: #fff;
+  background: #1f9d55;
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(31, 157, 85, .35);
+}
+.apply-success h4 { margin-bottom: .6rem; color: #0a1330; font-weight: 600; }
+.apply-success p { max-width: 420px; margin: 0 auto 1.5rem; color: #55617a; }
+
+@media (max-width: 575px) {
+  .apply-modal .modal-header { padding: 1rem 1.25rem; flex-wrap: wrap; gap: .5rem; }
+  .apply-modal .modal-title { font-size: 1.15rem; }
+  .apply-modal .modal-body { padding: 1.4rem 1.25rem 1.6rem; }
+  .apply-actions { flex-direction: column; align-items: stretch; gap: .75rem; text-align: center; }
+  .apply-actions .btn-gold { width: 100%; }
+}
+
+/* ==========================================================================
+   CAREERS - benefits (clean centered icon columns, no hover)
+   ========================================================================== */
+.benefit-card,
+.benefit-card:hover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem 1.5rem;
+  text-align: center;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+}
+.benefit-icon,
+.benefit-card:hover .benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0 0 1.75rem;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: #1a1a1a;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+}
+.benefit-card h4 {
+  margin: 0 0 .9rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #1a1a1a;
+}
+.benefit-card p {
+  max-width: 260px;
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.7;
+  color: #5b6478;
 }
