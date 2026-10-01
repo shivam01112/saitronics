@@ -329,8 +329,217 @@
 <!-- ============================== FOOTER ============================== -->
 <div id="footer-placeholder"></div>
 
+<!-- ============================== APPLY MODAL ============================== -->
+<div class="modal fade apply-modal" id="applyModal" tabindex="-1" aria-labelledby="applyModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="applyModalTitle">Apply</h3>
+        <span class="apply-role"><i class="bi bi-briefcase"></i> <span id="applyRoleLabel">General Application</span></span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="applyForm" novalidate>
+          <input type="hidden" name="position" id="applyPosition" value="General Application">
+          <input type="text" name="website" class="apply-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="apply-label" for="apName">Full name <span>*</span></label>
+              <input type="text" class="form-control" id="apName" name="name" placeholder="Your full name" autocomplete="name" required>
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="apply-label" for="apEmail">Email <span>*</span></label>
+              <input type="email" class="form-control" id="apEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="apply-label" for="apPhone">Phone <span>*</span></label>
+              <input type="tel" class="form-control" id="apPhone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" pattern="[0-9+\-\s()]{8,15}" required>
+              <div class="invalid-feedback">Please enter a valid phone number.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="apply-label" for="apCity">Current city <span>*</span></label>
+              <input type="text" class="form-control" id="apCity" name="city" placeholder="e.g. Delhi NCR" autocomplete="address-level2" required>
+              <div class="invalid-feedback">Please enter your current city.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="apply-label" for="apExp">Total experience <span>*</span></label>
+              <select class="form-select" id="apExp" name="experience" required>
+                <option value="" selected disabled>Select experience</option>
+                <option>Fresher</option>
+                <option>Less than 2 years</option>
+                <option>2 – 5 years</option>
+                <option>5 – 8 years</option>
+                <option>8+ years</option>
+              </select>
+              <div class="invalid-feedback">Please select your experience.</div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="apply-label" for="apNotice">Notice period</label>
+              <select class="form-select" id="apNotice" name="notice">
+                <option value="" selected>Select notice period</option>
+                <option>Immediate</option>
+                <option>15 days</option>
+                <option>30 days</option>
+                <option>60 days</option>
+                <option>90 days</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="apply-label" for="apResume">Resume <span>*</span></label>
+              <label class="apply-file" for="apResume" id="apFileBox">
+                <i class="bi bi-cloud-arrow-up"></i>
+                <span class="apply-file-text"><strong id="apFileName">Choose a file to upload</strong><small>PDF, DOC or DOCX &middot; max 5 MB</small></span>
+              </label>
+              <input type="file" class="apply-file-input" id="apResume" name="resume" accept=".pdf,.doc,.docx" required>
+              <div class="apply-file-error" id="apFileError" role="alert"></div>
+            </div>
+            <div class="col-12">
+              <div class="form-check apply-consent">
+                <input class="form-check-input" type="checkbox" id="apConsent" required>
+                <label class="form-check-label" for="apConsent">I agree that Saitronics may store and use my details to process this application.</label>
+                <div class="invalid-feedback">Please accept to continue.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="apply-actions">
+            <button type="submit" class="btn btn-gold" id="applySubmit">Submit Application <i class="bi bi-arrow-right ms-1"></i></button>
+            <button type="button" class="apply-cancel" data-bs-dismiss="modal">Cancel</button>
+          </div>
+          <p class="apply-error" id="applyError" role="alert"></p>
+        </form>
+
+        <div class="apply-success" id="applySuccess" hidden>
+          <div class="apply-success-icon"><i class="bi bi-check-lg"></i></div>
+          <h4>Application received</h4>
+          <p>Thank you for applying. Our team will review your profile and get back to you if it's a match.</p>
+          <button type="button" class="btn btn-navy" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Bootstrap Bundle (incl. Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+(function () {
+  // Set FORM_ENDPOINT to a form backend URL (e.g. Formspree) to receive applications with the resume attached.
+  // While empty, the form falls back to opening the user's email app addressed to careers@saitronics-it.com.
+  var FORM_ENDPOINT = "";
+  var CAREERS_EMAIL = "careers@saitronics-it.com";
+  var MAX_SIZE = 5 * 1024 * 1024;
+  var PROMPT = "Choose a file to upload";
+
+  var modalEl = document.getElementById("applyModal");
+  var form = document.getElementById("applyForm");
+  var success = document.getElementById("applySuccess");
+  var roleLabel = document.getElementById("applyRoleLabel");
+  var positionInput = document.getElementById("applyPosition");
+  var fileInput = document.getElementById("apResume");
+  var fileName = document.getElementById("apFileName");
+  var fileBox = document.getElementById("apFileBox");
+  var fileError = document.getElementById("apFileError");
+  var errorEl = document.getElementById("applyError");
+  var submitBtn = document.getElementById("applySubmit");
+  var submitHtml = submitBtn ? submitBtn.innerHTML : "";
+  if (!modalEl || !form) return;
+
+  modalEl.addEventListener("show.bs.modal", function (e) {
+    var job = (e.relatedTarget && e.relatedTarget.getAttribute("data-job")) || "General Application";
+    roleLabel.textContent = job;
+    positionInput.value = job;
+  });
+
+  modalEl.addEventListener("hidden.bs.modal", function () {
+    form.reset();
+    form.classList.remove("was-validated");
+    form.hidden = false;
+    success.hidden = true;
+    resetFile();
+    errorEl.textContent = "";
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = submitHtml;
+  });
+
+  function resetFile() {
+    fileName.textContent = PROMPT;
+    fileBox.classList.remove("has-file", "is-invalid");
+    fileError.textContent = "";
+  }
+
+  function fileProblem(msg) {
+    fileError.textContent = msg;
+    fileBox.classList.add("is-invalid");
+    fileInput.value = "";
+    fileName.textContent = PROMPT;
+    return false;
+  }
+
+  function checkFile() {
+    var f = fileInput.files[0];
+    fileError.textContent = "";
+    fileBox.classList.remove("has-file", "is-invalid");
+    if (!f) { fileName.textContent = PROMPT; return false; }
+    if (!/\.(pdf|docx?)$/i.test(f.name)) return fileProblem("Please upload a PDF, DOC or DOCX file.");
+    if (f.size > MAX_SIZE) return fileProblem("File is larger than 5 MB.");
+    fileName.textContent = f.name;
+    fileBox.classList.add("has-file");
+    return true;
+  }
+  fileInput.addEventListener("change", checkFile);
+
+  function showSuccess() {
+    form.hidden = true;
+    success.hidden = false;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    errorEl.textContent = "";
+    var fileOk = checkFile();
+    if (!fileOk && !fileError.textContent) {
+      fileError.textContent = "Please upload your resume.";
+      fileBox.classList.add("is-invalid");
+    }
+    if (!form.checkValidity() || !fileOk) {
+      form.classList.add("was-validated");
+      var bad = form.querySelector(":invalid");
+      if (bad && bad !== fileInput) bad.focus();
+      return;
+    }
+    if (form.website.value) return; // honeypot
+
+    if (FORM_ENDPOINT) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+      fetch(FORM_ENDPOINT, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) { if (!r.ok) throw new Error(); showSuccess(); })
+        .catch(function () { errorEl.textContent = "Something went wrong. Please try again or email " + CAREERS_EMAIL + "."; })
+        .then(function () { submitBtn.disabled = false; submitBtn.innerHTML = submitHtml; });
+    } else {
+      var d = new FormData(form);
+      var body = [
+        "Position: " + d.get("position"),
+        "Name: " + d.get("name"),
+        "Email: " + d.get("email"),
+        "Phone: " + d.get("phone"),
+        "City: " + d.get("city"),
+        "Experience: " + d.get("experience"),
+        "Notice period: " + (d.get("notice") || "-"),
+        "",
+        "(Please attach your resume: " + fileInput.files[0].name + ")"
+      ].join("\n");
+      window.location.href = "mailto:" + CAREERS_EMAIL + "?subject=" + encodeURIComponent("Application: " + d.get("position")) + "&body=" + encodeURIComponent(body);
+      showSuccess();
+    }
+  });
+})();
+</script>
 </body>
 </html>
