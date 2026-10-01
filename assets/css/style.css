@@ -2537,11 +2537,7 @@ gap: 12px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(100deg,
-    rgba(2, 8, 22, .96) 0%,
-    rgba(2, 16, 45, .92) 38%,
-    rgba(7, 30, 75, .85) 68%,
-    rgba(26, 86, 160, .58) 100%);
+  background:linear-gradient(100deg, rgba(2, 8, 22, .96) 0%, rgba(2, 16, 45, .92) 38%, rgb(9 18 37) 68%, rgb(4 17 41) 100%);
   z-index: 1;
 }
 
@@ -4132,65 +4128,101 @@ textarea.form-control {
 }
 
 /* ==========================================================================
-   SOLUTIONS (home) - horizontal cards: text left, image right; no hover effects
+   SOLUTIONS (home) - bento banner cards, alternating dark / light
    ========================================================================== */
-#solutions .sol-head { display: block; margin-bottom: 2.75rem; }
-#solutions .sol-head > div { flex: none; width: 100%;  margin: 0 auto; text-align: center; }
+#solutions .sol-head { display: block; margin-bottom: 3rem; }
+#solutions .sol-head > div { flex: none; width: 100%; margin: 0 auto; text-align: center; }
 #solutions .sol-head .eyebrow { justify-content: center; }
 #solutions .sol-head .section-sub { margin: 0 auto; max-width: 640px; font-size: 1rem; }
-#solutions .sol-grid { --bs-gutter-x: .7rem; --bs-gutter-y: 1.5rem; counter-reset: sol; }
+
+#solutions .sol-grid {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+  display: grid;
+  grid-template-columns: repeat(60, minmax(0, 1fr));
+  gap: 1.1rem;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+#solutions .sol-grid > [class*="col-"] {
+  flex: none;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+/* row 1: 35 / 25   row 2: 20 / 20 / 20   row 3: 28 / 32 */
+#solutions .sol-grid > :nth-child(1) { grid-column: span 35; }
+#solutions .sol-grid > :nth-child(2) { grid-column: span 25; }
+#solutions .sol-grid > :nth-child(3),
+#solutions .sol-grid > :nth-child(4),
+#solutions .sol-grid > :nth-child(5) { grid-column: span 20; }
+#solutions .sol-grid > :nth-child(6) { grid-column: span 28; }
+#solutions .sol-grid > :nth-child(7) { grid-column: span 32; }
+
+/* card */
 #solutions .solution-card {
-  counter-increment: sol;
+  --card-bg:#fff8f8;
   position: relative;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  gap: .9rem;
-  min-height: 280px;
-  padding: 1.25rem 1rem 1.25rem 1.25rem;
-  background: #fff;
-  border: 1px solid var(--border-soft);
-  /* border-bottom: 3px solid var(--gold); */
-  border-radius: 10px;
-  box-shadow: none;
-  transition: none;
-  overflow: hidden;
-}
-/* #solutions .solution-card:hover { transform: none; box-shadow: none; border-color: var(--border-soft); border-bottom-color: var(--gold); } */
-#solutions .solution-card .sol-body {
-  order: 1;
-  flex: 1 1 0;
-  min-width: 0;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 300px;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid #e3e8f1;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(10, 31, 107, .06);
+  overflow: hidden;
+  transition: transform .35s ease, box-shadow .35s ease;
 }
+#solutions .solution-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 46px rgba(10, 31, 107, .16);
+}
+#solutions .sol-grid > :nth-child(3) .solution-card,
+#solutions .sol-grid > :nth-child(4) .solution-card,
+#solutions .sol-grid > :nth-child(5) .solution-card { min-height: 280px; }
+#solutions .sol-grid > :nth-child(1) .solution-card { min-height: 330px; }
+
+/* dark variants */
+#solutions .sol-grid > :nth-child(1) .solution-card,
+#solutions .sol-grid > :nth-child(4) .solution-card,
+#solutions .sol-grid > :nth-child(6) .solution-card {
+  --card-bg: #060d24;
+  border-color: #101b3f;
+}
+
+/* image: right side, fades into the card background */
 #solutions .solution-card .sol-media {
-  order: 2;
-  position: relative;
-  flex: 0 0 34%;
-  width: 34%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 34%;
+  width: auto;
   height: auto;
-  align-self: stretch;
-  border-radius: 64px 10px 10px 10px;
-  overflow: visible;
+  border-radius: 0;
+  overflow: hidden;
   background: transparent;
 }
-/* gold accent block peeking out behind the image */
-#solutions .solution-card .sol-media::before {
+#solutions .solution-card .sol-media::before { display: none; }
+#solutions .solution-card .sol-media::after {
   content: "";
   position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 58%;
-  height: 34%;
-  background: var(--gold);
-  border-radius: 64px 0 0 0;
+  inset: 0;
+  background: linear-gradient(90deg, var(--card-bg) 0%, var(--card-bg) 35%, transparent 100%);
 }
-#solutions .solution-card .sol-media::after { display: none; }
+#solutions .sol-grid > :nth-child(1) .sol-media { left: 42%; }
+#solutions .sol-grid > :nth-child(3) .sol-media,
+#solutions .sol-grid > :nth-child(4) .sol-media,
+#solutions .sol-grid > :nth-child(5) .sol-media { left: 44%; }
 #solutions .solution-card .sol-media img {
-  position: relative;
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
