@@ -216,39 +216,15 @@
       showLeader(prev);
     }
 
-    var autoplayDelay = 3000;
-    var autoplayTimer = null;
-
-    function startAutoplay() {
-      stopAutoplay();
-      autoplayTimer = setInterval(nextLeader, autoplayDelay);
-    }
-
-    function stopAutoplay() {
-      if (autoplayTimer) clearInterval(autoplayTimer);
-    }
-
-    function restartAutoplay() {
-      startAutoplay();
-    }
-
-    if (prevBtn) prevBtn.addEventListener("click", function () { prevLeader(); restartAutoplay(); });
-    if (nextBtn) nextBtn.addEventListener("click", function () { nextLeader(); restartAutoplay(); });
+    // Slides change only on click (prev / next / avatar) - no autoplay.
+    if (prevBtn) prevBtn.addEventListener("click", prevLeader);
+    if (nextBtn) nextBtn.addEventListener("click", nextLeader);
 
     avatarBtns.forEach(function (btn, index) {
       btn.addEventListener("click", function () {
         showLeader(index);
-        restartAutoplay();
       });
     });
-
-    var hoverPauseEl = document.querySelector(".featured-leader-wrapper");
-    if (hoverPauseEl) {
-      hoverPauseEl.addEventListener("mouseenter", stopAutoplay);
-      hoverPauseEl.addEventListener("mouseleave", startAutoplay);
-    }
-
-    startAutoplay();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
