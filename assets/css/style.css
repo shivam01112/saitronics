@@ -843,15 +843,25 @@ img {
 }
 
 @media (max-width: 767px) {
+  .metrics-band { padding: 3.5rem 0; }
+
   .metric-item {
     flex: 1 1 50%;
-    border-left: none;
-    border-top: 1px solid var(--border-soft);
+    min-width: 0;
+    padding: 1.5rem .75rem;
   }
 
-  .metric-item:nth-child(odd) {
-    border-right: 1px solid var(--border-soft);
+  .metric-item + .metric-item::before { display: none; }
+
+  .metric-item:nth-child(even)::before {
+    display: block;
+    top: 12%;
+    bottom: 12%;
   }
+
+  .metric-item .metric-num { font-size: 1.7rem; gap: 1.1rem; }
+  .metric-item .metric-num i { font-size: 2.3rem; }
+  .metric-item .metric-label { font-size: .9rem; }
 }
 
 /* ==========================================================================
@@ -2168,7 +2178,7 @@ img {
   }
 
   .metrics-band {
-    margin-top: 2.5rem;
+    margin-top: 0;
   }
 
   .main-navbar .nav-link.active::after {
