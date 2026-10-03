@@ -7467,3 +7467,131 @@ textarea.form-control {
   line-height: 1.7;
   color: #5b6478;
 }
+
+
+/* ==========================================================================
+   BFSI industry page
+   ========================================================================== */
+.bfsi-points { display: grid; gap: 1rem; }
+.bfsi-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 1.4rem 1.5rem;
+  background: #fff;
+  border: 1px solid #e3e8f1;
+  border-left: 3px solid var(--gold);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(10, 31, 107, .07);
+}
+.bfsi-point-icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
+  color: var(--navy);
+  background: rgba(238, 176, 25, .16);
+  border-radius: 12px;
+}
+.bfsi-point h3 { margin: 0 0 .25rem; font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+.bfsi-point p { margin: 0; font-size: .92rem; line-height: 1.6; color: #556078; }
+
+.bfsi-clients {
+  background: linear-gradient(180deg, #f4f7fd 0%, #fff 100%);
+}
+.bfsi-clients .partner-grid { max-width: 1100px; margin: 0 auto; }
+.bfsi-clients .partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 960px;
+  margin: 3rem auto 0;
+}
+.bfsi-clients .partner-logo-box {
+  height: 160px;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border: 1px solid #e3e8f1;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(10, 31, 107, .06);
+}
+.bfsi-clients .partner-logo-box:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 176, 25, .6);
+  box-shadow: 0 18px 40px rgba(10, 31, 107, .14);
+}
+.bfsi-clients .partner-logo-box img { max-height: 80px; }
+.bfsi-overview { padding-top: 5rem; padding-bottom: 5rem; }
+@media (max-width: 575.98px) {
+  .bfsi-clients .partner-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+  .bfsi-clients .partner-logo-box { height: 120px; padding: 1rem; }
+  .bfsi-clients .partner-grid > :last-child { grid-column: 1 / -1; justify-self: center; width: calc(50% - .4rem); }
+}
+
+/* ==========================================================================
+   SOLUTIONS - horizontal glass cards (text left, artwork right)
+   ========================================================================== */
+#solutions .solution-card {
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 250px;
+  background: linear-gradient(135deg, #0c2150 0%, #08183f 100%);
+  border: 1px solid rgba(120, 160, 255, .22);
+  border-radius: 18px;
+  backdrop-filter: none;
+}
+#solutions .solution-card .sol-media,
+#solutions .sol-grid > :nth-child(n) .sol-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 42%;
+  width: auto;
+  height: auto;
+}
+#solutions .sol-grid > :nth-child(1) .sol-media,
+#solutions .sol-grid > :nth-child(2) .sol-media,
+#solutions .sol-grid > :nth-child(6) .sol-media,
+#solutions .sol-grid > :nth-child(7) .sol-media { left: 50%; }
+#solutions .solution-card .sol-media img { opacity: 1; }
+#solutions .solution-card .sol-media::after {
+  background:linear-gradient(90deg, #0a1c47f2 0%, rgb(10 28 71 / 0%) 45%, rgb(10 28 71 / 0%) 100%), linear-gradient(0deg, rgb(8 20 51 / 0%), transparent 50%);
+}
+#solutions .solution-card .sol-body {
+  flex: 0 0 auto;
+  width: 82%;
+  justify-content: center;
+  padding: 1.75rem 1.25rem 1.75rem 1.75rem;
+}
+#solutions .sol-grid > :nth-child(1) .sol-body,
+#solutions .sol-grid > :nth-child(2) .sol-body,
+#solutions .sol-grid > :nth-child(6) .sol-body,
+#solutions .sol-grid > :nth-child(7) .sol-body { width: 56%; }
+#solutions .solution-card .sol-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1.1rem;
+  font-size: 1.15rem;
+  color: #fff;
+  background: rgba(59, 110, 255, .35);
+  border: 1px solid rgba(140, 175, 255, .35);
+  border-radius: 11px;
+}
+#solutions .solution-card h3 { font-size: 1.2rem; margin-bottom: .55rem; }
+#solutions .solution-card p { flex: 0 0 auto; font-size: .88rem; line-height: 1.6; margin-bottom: 1.25rem; }
+#solutions .solution-card .sol-link { margin-top: auto; }
+@media (max-width: 575.98px) {
+  #solutions .solution-card { flex-direction: column; min-height: 0; }
+  #solutions .solution-card .sol-media,
+  #solutions .sol-grid > :nth-child(n) .sol-media { position: absolute; inset: 0; opacity: .5; }
+  #solutions .solution-card .sol-body,
+  #solutions .sol-grid > :nth-child(n) .sol-body { width: 100%; }
+}
+#solutions .solution-card .sol-icon { display: none; }
