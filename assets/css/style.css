@@ -808,47 +808,38 @@ img {
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--gold);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform .3s ease;
+  top: 8%;
+  bottom: 8%;
+  width: 1px;
+  background: #e2e6ef;
 } */
 
-.metric-item:hover {
-  background: var(--bg-light);
-  box-shadow: rgba(255, 255, 255, 0.916) 1.4px 1.4px 1.2px;
-}
-
-.metric-item:hover::before {
-  transform: scaleY(1);
-  transform-origin: top;
-}
-
 .metric-item .metric-num {
-gap: 12px;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    font-size: 27px;
-    color: var(--navy);
-    line-height: 1;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  line-height: 1;
 }
 
 .metric-item .metric-num i {
-  font-size: 2.15rem;
-  color: var(--gold);
+  display: block;
+  font-size: 2.7rem;
+  line-height: 1;
+  color: #0a1330;
 }
 
 .metric-item .metric-label {
-  color:#000;
-  font-size: 15px;
+  margin-top: 1.1rem;
+  color: #4a546b;
+  font-size: 1rem;
+  font-weight: 400;
   text-align: center;
-  font-weight: 500;
-  margin-top: .65rem;
 }
 
 @media (max-width: 767px) {
