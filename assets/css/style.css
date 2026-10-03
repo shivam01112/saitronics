@@ -4202,18 +4202,24 @@ textarea.form-control {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* mobile: single column */
-@media (max-width: 575px) {
-  #solutions .sol-grid { grid-template-columns: 1fr; gap: 1rem; }
-  #solutions .sol-grid > :nth-child(n) { grid-column: span 1; }
+
+@media (max-width:575px) {
+  .pillar-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* ==========================================================================
-   WHY SAITRONICS - clean white, centered icon columns
-   ========================================================================== */
-.why-us {
-  padding: 2rem 0 2rem;
+.pillar {
+  position: relative;
+  min-height: 320px;
+  padding: 4.1rem 2.5rem 1.6rem;
   background: #fff;
+  border: 1px solid rgba(8, 44, 91, .12);
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(3, 35, 86, .22);
+  text-align: center;
+  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  overflow: hidden;
 }
 .why-us::after { display: none; }
 .why-us .why-us-head {
