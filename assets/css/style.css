@@ -4137,45 +4137,29 @@ textarea.form-control {
   padding-bottom: 7rem;
 }
 
-/* image: right side, fades into the card background */
-#solutions .solution-card .sol-media {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 34%;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  overflow: hidden;
-  background: transparent;
-}
-#solutions .solution-card .sol-media::before { display: none; }
-#solutions .solution-card .sol-media::after {
-  content: "";
+.why-us-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, var(--card-bg) 0%, var(--card-bg) 35%, transparent 100%);
+  z-index: 0;
+  background-image:linear-gradient(115deg, rgb(255 255 255 / 98%) 0%, rgb(255 255 255 / 96%) 43%, rgb(255 255 255 / 0%) 72%), url(../img/hero-bg.png);
+  background-size: cover;
+  background-position: center right;
+  clip-path: ellipse(100% 78% at 50% 18%);
 }
-#solutions .sol-grid > :nth-child(1) .sol-media { left: 42%; }
-#solutions .sol-grid > :nth-child(3) .sol-media,
-#solutions .sol-grid > :nth-child(4) .sol-media,
-#solutions .sol-grid > :nth-child(5) .sol-media { left: 44%; }
-#solutions .solution-card .sol-media img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center left;
-  border-radius: 0;
-  transition: transform .7s ease;
-}
-#solutions .solution-card:hover .sol-media img { transform: scale(1.05); }
 
-/* text */
-#solutions .solution-card .sol-body {
+.why-us::after {
+     content: "";
+    position: absolute;
+    inset: 41% 0 0;
+    z-index: 0;
+    background-color: #050b1c;
+    background-image: radial-gradient(rgb(255 255 255 / 35%) 1px, transparent 1.5px);
+    background-size: 20px 20px;
+    clip-path: ellipse(115% 76% at 50% 100%);
+    pointer-events: none;
+}
+
+.why-us .container {
   position: relative;
   z-index: 1;
   display: flex;
