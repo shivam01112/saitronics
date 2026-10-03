@@ -781,30 +781,30 @@ img {
 .metrics-band {
   position: relative;
   z-index: 3;
-  margin-top: -40px;
+  margin-top: 0;
+  padding: 6rem 0;
+  background: #fff;
 }
 
 .metrics-bar {
-  background: #fff;
-  box-shadow: var(--shadow-lg);
   display: flex;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .metric-item {
   flex: 1 1 25%;
   min-width: 220px;
-  padding: 2.25rem 2rem;
-  border-left: 1px solid var(--border-soft);
+  padding: .5rem 1.5rem;
   position: relative;
-  transition: background .25s ease;
+  text-align: center;
 }
-
-.metric-item:first-child {
-  border-left: none;
-}
-
-/* .metric-item::before {
+/* 
+.metric-item + .metric-item::before {
   content: "";
   position: absolute;
   left: 0;
