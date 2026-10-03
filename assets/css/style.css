@@ -4175,44 +4175,19 @@ textarea.form-control {
   justify-content: flex-start;
 }
 
-/* link: gold round arrow + label */
-#solutions .solution-card .sol-link {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  gap: .65rem;
-  align-self: flex-start;
+.why-us-head .section-sub {
+  max-width: 560px;
   margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: .86rem;
-  font-weight: 600;
-  color: #0a1330;
+  color: #334155;
 }
-#solutions .solution-card .sol-link i {
-  order: -1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  font-size: .95rem;
-  color: #0a1330;
-  background: var(--gold);
-  border-radius: 50%;
-  transition: transform .3s ease, box-shadow .3s ease;
+
+.why-us-head .section-title {
+  max-width: 577px;
+  color: #09234e;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
 }
-#solutions .solution-card:hover .sol-link i {
-  transform: translateX(3px);
-  box-shadow: 0 6px 16px rgba(238, 176, 25, .5);
-}
-#solutions .solution-card:hover .sol-link { color: #0a1330; }
-#solutions .sol-grid > :nth-child(1) .sol-link,
-#solutions .sol-grid > :nth-child(4) .sol-link,
-#solutions .sol-grid > :nth-child(6) .sol-link,
-#solutions .sol-grid > :nth-child(1) .solution-card:hover .sol-link,
-#solutions .sol-grid > :nth-child(4) .solution-card:hover .sol-link,
-#solutions .sol-grid > :nth-child(6) .solution-card:hover .sol-link { color: #fff; }
 
 /* desktop: text column and image column never overlap */
 @media (min-width: 992px) {
