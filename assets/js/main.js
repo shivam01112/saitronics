@@ -31,7 +31,8 @@
     document.querySelectorAll(".main-navbar .nav-link").forEach(function (link) {
       var href = link.getAttribute("href");
       if (!href) return;
-      link.classList.toggle("active", href === current);
+      var isIndustry = href === "industries.html" && /^industries-.*\.html$/.test(current);
+      link.classList.toggle("active", href === current || isIndustry);
     });
   }
 
@@ -114,15 +115,16 @@
   }
 
   function initMobileSolutionsDropdown() {
-    var toggle = document.getElementById("solutionsDropdown");
-    var dropdown = toggle && toggle.closest(".solutions-dropdown");
-    if (!toggle || !dropdown) return;
+    document.querySelectorAll(".solutions-dropdown").forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".dropdown-toggle");
+      if (!toggle) return;
 
-    toggle.addEventListener("click", function (event) {
-      if (window.innerWidth >= 992) return;
-      event.preventDefault();
-      var isOpen = dropdown.classList.toggle("show");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.addEventListener("click", function (event) {
+        if (window.innerWidth >= 992) return;
+        event.preventDefault();
+        var isOpen = dropdown.classList.toggle("show");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      });
     });
   }
 
