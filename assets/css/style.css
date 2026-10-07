@@ -3163,8 +3163,8 @@ img {
 }
 
 .case-card-media {
-  height: 28
-  0px;
+  height: 280px;
+  flex-shrink: 0;
   overflow: hidden;
   background: var(--bg-light);
   position: relative;
@@ -5829,8 +5829,8 @@ textarea.form-control {
 }
 
 .case-card-media {
-  height: 28
-  0px;
+  height: 280px;
+  flex-shrink: 0;
   overflow: hidden;
   background: var(--bg-light);
   position: relative;
@@ -7596,3 +7596,159 @@ textarea.form-control {
   #solutions .sol-grid > :nth-child(n) .sol-body { width: 100%; }
 }
 #solutions .solution-card .sol-icon { display: none; }
+
+/* Enterprise computing - clean feature grid (flat, no hover, plain icons) */
+.features-clean { background: #fff; }
+.features-clean .service-feature {
+  height: 100%;
+  padding: 1.5rem 1rem 1.5rem 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+}
+.features-clean .service-feature:hover {
+  transform: none;
+  box-shadow: none;
+  border: 0;
+}
+.features-clean .feature-icon {
+  width: auto;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  justify-content: flex-start;
+  color: #111;
+  font-size: 1.9rem;
+  line-height: 1;
+  margin-bottom: 1.1rem;
+}
+.features-clean .service-feature h3 { font-size: 1.1rem; margin-bottom: .5rem; color: #111; }
+.features-clean .service-feature p { font-size: .95rem; line-height: 1.65; }
+
+/* Industries dropdown - reuses the Solutions mega-menu, centred under its link */
+@media (min-width: 992px) {
+  .industries-dropdown .solutions-mega-menu {
+    left: 50%;
+    margin-left: -170px;
+    width: 340px;
+    transform: translateY(10px);
+  }
+}
+
+/* Dropdown links: no active underline, keep the caret icon */
+.main-navbar .nav-link.dropdown-toggle.active::after {
+  content: "";
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  height: 0;
+  background: none;
+  display: inline-block;
+  margin-left: .255em;
+  vertical-align: .255em;
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: 0;
+  border-left: .3em solid transparent;
+}
+
+/* About us - leadership profiles */
+.leadership-about { background: #fff; }
+.leader-rows { max-width: 1040px; margin: 3rem auto 0; }
+.leader-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2.25rem 0;
+  border-top: 1px solid #e6eaf2;
+}
+.leader-row:last-child { border-bottom: 1px solid #e6eaf2; }
+.leader-row:nth-child(even) { grid-template-columns: 1fr 260px; }
+.leader-row:nth-child(even) .leader-row-photo { order: 2; }
+.leader-row-photo {
+  background: #f4f6fb;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+.leader-row-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.leader-row-body h3 { font-size: 1.5rem; margin: 0 0 .25rem; color: #111; }
+.leader-row-role { display: block; font-weight: 600; font-size: .95rem; color: var(--blue, #1a56a0); }
+.leader-row-tenure { margin: .35rem 0 1rem; font-size: .85rem; color: #6b7690; }
+.leader-row-bio { margin: 0; font-size: 1rem; line-height: 1.75; color: #4a556b; }
+@media (max-width: 767.98px) {
+  .leader-row, .leader-row:nth-child(even) { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.75rem 0; }
+  .leader-row:nth-child(even) .leader-row-photo { order: 0; }
+  .leader-row-photo { max-width: 240px; }
+}
+
+/* Why Saitronics - premium refinement: soft cards, tinted icon, gold hover accent */
+.why-us { padding: 5rem 0; background: linear-gradient(180deg, #fff 0%, #f6f8fc 100%); }
+.why-us .why-us-head { margin-bottom: 3.5rem; }
+.why-us .why-us-head .section-title { font-weight: 600; }
+.why-us .pillar-grid { gap: 1.5rem; }
+.why-us .pillar {
+  padding: 2.5rem 1.5rem 2.25rem;
+  /* background: #fff;
+  border: 1px solid #e6eaf2; */
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(10, 31, 107, .04);
+  overflow: hidden;
+  transition: none;
+}
+.why-us .pillar::after { display: none; }
+.why-us .pillar:hover { transform: none; border-color: #e6eaf2; box-shadow: 0 1px 2px rgba(10, 31, 107, .04); }
+.why-us .pillar-icon,
+.why-us .pillar:nth-child(n) .pillar-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 0 1.4rem;
+  border-radius: 50%;
+  background: #eef2fb;
+  color: #0a1f6b;
+  font-size: 2rem;
+}
+.why-us .pillar h4 { font-weight: 600; margin-bottom: .75rem; }
+.why-us .pillar p { flex: 0 1 auto; max-width: 260px; font-size: .94rem; }
+@media (max-width: 575px) { .why-us { padding: 3.5rem 0; } }
+
+/* ---------- Industry pages: case study reference ---------- */
+.case-ref-section { background: var(--bg-light); }
+.case-ref {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #e6eaf2;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.case-ref:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(10, 30, 90, .12); }
+.case-ref img { width: 100%; height: 270px; object-fit: cover; flex-shrink: 0; }
+.case-ref-body { padding: 1.1rem 1.3rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.case-ref-tag { font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #1f4a9a; }
+.case-ref h3 { font-size: 1.05rem; line-height: 1.35; margin: .45rem 0 .9rem; color: #0b1b3f; }
+.case-ref-link, .case-ref-all { margin-top: auto; font-weight: 600; font-size: .92rem; color: #1f4a9a; text-decoration: none; }
+.case-ref:hover .case-ref-link, .case-ref-all:hover { color: #e8b02a; }
+.case-ref-all { padding-bottom: .5rem; white-space: nowrap; }
+.case-ref-wide { flex-direction: row; }
+.case-ref-wide img { width: 42%; height: auto; min-height: 240px; }
+.case-ref-wide .case-ref-body { justify-content: center; padding: 2rem 2.4rem; }
+.case-ref-wide h3 { font-size: 1.5rem; }
+.case-ref-wide .case-ref-link { margin-top: .4rem; }
+@media (max-width: 767.98px) {
+  .case-ref-wide { flex-direction: column; }
+  .case-ref-wide img { width: 100%; height: 190px; min-height: 0; }
+  .case-ref-wide .case-ref-body { padding: 1.2rem 1.3rem 1.4rem; }
+}
+.case-ref-wide { height: 260px; }
+.case-ref-wide img { width: 40%; height: 100%; min-height: 0; object-position: center 30%; }
+@media (max-width: 767.98px) {
+  .case-ref-wide { height: auto; }
+  .case-ref-wide img { width: 100%; height: 190px; }
+}
